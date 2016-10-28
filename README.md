@@ -1,5 +1,7 @@
 # LightweightSchedule
 
+![previewImgMain](marchenkovdmitry.com/projects/raspisanie/github_img/OZIKYKGwI98.jpg "")
+
 Что это?
 ========================
 
@@ -35,4 +37,16 @@
 19. Поправлена подсветка на темной теме (был реверс цвета числителей/знаменателей).
 20. Оптимизация производительности (Теперь на телефонах работает со скоростью света)
 
+Живое демо
+========================
+http://marchenkovdmitry.com/projects/raspisanie/
+зеркало:
+http://raspisanie.marchenkovdmitry.com
+
+![previewImg1](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture1.JPG "")
+![previewImg2](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture2.JPG "")
+![previewImg3](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture3.JPG "")
+![previewImg4](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture4.JPG "")
+![previewImg5](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture5.JPG "")
+![previewImg6](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture6.JPG "")
 
