@@ -89,6 +89,35 @@ var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
           };
        };
     };
+    function ManualSetDayUrlHash(event) {
+      var pressKey;
+      if (event.which == null) {
+        if (event.keyCode < 32) return;
+        pressKey = String.fromCharCode(event.keyCode);
+      };
+      if (event.which != 0 && event.charCode != 0) {
+        if (event.which < 32) return;
+        pressKey = String.fromCharCode(event.which);
+      };
+      switch (pressKey) {
+      case "1":
+        location.hash = "monday";
+        break;
+      case "2":
+        location.hash = "tuesday";
+        break;
+      case "3":
+        location.hash = "wednesday";
+        break;
+      case "4":
+        location.hash = "thursday";
+        break;
+      case "5":
+        location.hash = "friday";
+        break;
+      default:
+      };
+    };
     Date.prototype.getWeek = function () {
         var target = new Date(this.valueOf());
         var dayNr = (this.getDay() + 6) % 7;
@@ -175,7 +204,6 @@ liSetup.addEventListener( "click" , function(){
   });
 };
 
-
 //menuSetup
 
   switch (getLocalItem ("menuStyle")) {
@@ -204,7 +232,6 @@ menuSetup.addEventListener( "click" , function(){
     menuStyle("none");
   };
   });
-
 
 //backgroundStyle
 
@@ -235,7 +262,6 @@ backgroundSetup.addEventListener( "click" , function(){
   };
   });
 
-
 //dayWeek
 
   switch (getLocalItem ("dayWeek")) {
@@ -264,6 +290,10 @@ daySetup.addEventListener( "click" , function(){
     setDayUrlHash();
   };
   });
+
+// keyboardNavigation
+
+body.addEventListener( "keypress" , ManualSetDayUrlHash);
 }
 else {
   console.log("Sorry. We can't use localStorage awesomeness :(")
