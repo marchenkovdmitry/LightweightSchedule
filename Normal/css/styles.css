@@ -40,7 +40,6 @@
 }
      
 body {
-	background-image: url("../img/diagonal_striped_brick.png");
 	background-color: #fff;
 	font-family: "PT Sans", Georgia, "Times New Roman", serif; 
 	height: 100%;
@@ -157,10 +156,10 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-    .background-setup {
+	.opacity-setup {
     	visibility: hidden;
     }
-    .menu-setup {
+    .background-setup {
     	visibility: hidden;
     }
 }
@@ -268,7 +267,7 @@ body {
 /* Custom user preferencies */
 
 
-.background-setup {
+.opacity-setup {
 	width: 48px;
 	height: 48px;
 	box-sizing: border-box;
@@ -280,6 +279,27 @@ body {
 	background-image: url("../img/ic_lightbulb_outline_white_36px.svg");
 	background-repeat: no-repeat;
 	background-position: 6px 6px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.opacity-setup:hover {
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.background-setup {
+	width: 48px;
+	height: 48px;
+	box-sizing: border-box;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	background-color: #2d72d9;
+	margin-top: 410px;
+	position: fixed;
+	background-image: url("../img/ic_invert_colors_white_36px.svg");
+	background-repeat: no-repeat;
+	background-position: 4px 5px;
+	background-size: 80%;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
@@ -295,7 +315,7 @@ body {
 	color: #fff;
 	border-radius: 0 5px 5px 0;
 	background-color: #2d72d9;
-	margin-top: 410px;
+	margin-top: 470px;
 	position: fixed;
 	background-image: url("../img/ic_menu_white_36px.svg");
 	background-repeat: no-repeat;
@@ -308,3 +328,4 @@ body {
 	opacity: 0.9;
 	cursor: pointer;
 }
+
