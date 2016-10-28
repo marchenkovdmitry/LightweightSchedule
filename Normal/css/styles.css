@@ -11,6 +11,7 @@
      
 body {
 	background-color: #fff;
+	transition: background .05s ease-in-out;
 	font-family: "PT Sans", Georgia, "Times New Roman", serif; 
 	height: 100%;
 	width: 100%; 
@@ -224,7 +225,7 @@ body {
 /* Custom user preferencies */
 
 
-.opacity-setup {
+.li-setup {
 	width: 48px;
 	height: 48px;
 	box-sizing: border-box;
@@ -239,12 +240,12 @@ body {
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.opacity-setup:hover {
+.li-setup:hover {
 	opacity: 0.9;
 	cursor: pointer;
 }
 
-.opacity-setup:active {
+.li-setup:active {
 	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.43);
 }
 
@@ -375,7 +376,7 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-    .opacity-setup {
+    .li-setup {
         position:static;
         margin: 0;
         display: inline-block;

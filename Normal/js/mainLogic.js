@@ -6,36 +6,65 @@ var dt,
     d0 = new Date(),
     oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
     evenElements = document.querySelectorAll('.day_week li:nth-child(even)'),
-    opacitySetup = document.querySelector(".opacity-setup"),
+    liSetup = document.querySelector(".li-setup"),
     menu = document.querySelector(".menu"),
     menuSetup = document.querySelector(".menu-setup"),
     body = document.querySelector("body"),
     footer = document.querySelector(".footer"),
     backgroundSetup = document.querySelector(".background-setup"),
     daySetup = document.querySelector(".day-setup");
-    
-    function darkColor (element) {
-      element.style.background = "#61697c";
-    };
-    function lightColor (element) {
-      element.style.background = "#4f5a6e";
-    };
-    function menuStyle (key) {
-      if (key === "block") {
-        menu.style.display = "block";
+
+    function setElemColor(element,color) {
+      function darkColor (elem) {
+        elem.style.background = "#61697c";
+      };
+      function lightColor (elem) {
+        elem.style.background = "#4f5a6e";
+      };
+      if (element === "oddElements" && color === "lightColor") {
+        [].forEach.call(oddElements,lightColor);
       }
-      else if (key === "none") {
-        menu.style.display = "none";
+      else if (element === "oddElements" && color === "darkColor") {
+        [].forEach.call(oddElements,darkColor);
+      }
+      else if (element === "evenElements" && color === "lightColor") {
+        [].forEach.call(evenElements,lightColor);
+      }
+      else if (element === "evenElements" && color === "darkColor") {
+        [].forEach.call(evenElements,darkColor);
+      }
+      else {
+        return
+      };
+    };
+    function setLocalItem (item,type) {
+      localStorage.setItem(item,type);
+    }
+    function getLocalItem (item) {
+      return localStorage.getItem(item);
+    }
+    function menuStyle (key) {
+      switch (key) {
+        case "block":
+          menu.style.display = "block";
+          break;
+        case "none":
+          menu.style.display = "none";
+          break;
+        default:
       };
     };
     function setBackground (key) {
-      if (key === "light") {
-        body.style.backgroundImage = "url(img/diagonal_striped_brick.png)";
-        footer.style.color = "#000";
-      }
-      else if (key === "dark") {
-        body.style.backgroundImage = "url(img/escheresque_ste.png)";
-        footer.style.color = "#fff";
+      switch (key) {
+        case "light":
+          body.style.backgroundImage = "url(img/diagonal_striped_brick.png)";
+          footer.style.color = "#000";
+          break;
+        case "dark":
+          body.style.backgroundImage = "url(img/escheresque_ste.png)";
+          footer.style.color = "#fff";
+          break;
+        default:
       };
     };
     function setDayUrlHash(key) {
@@ -88,141 +117,150 @@ function storageAvailable(type) {
 
 if (storageAvailable('localStorage')) {
 if(dt % 2) {
-  if (localStorage.getItem("colorStyle") === "type1") {
-    [].forEach.call(oddElements,lightColor);
-  }
-  else if (localStorage.getItem("colorStyle") === "type2") {
-    [].forEach.call(oddElements,darkColor);
-  }
-  else {
-    [].forEach.call(oddElements,darkColor);
+  switch (getLocalItem ("colorStyle")) {
+  case "type1":
+    setElemColor("oddElements","lightColor");
+    break;
+  case "type2":
+    setElemColor("oddElements","darkColor");
+    break;
+  default:
+    setElemColor("oddElements","darkColor");
   };
-
-opacitySetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("colorStyle") === "type1") {
-    localStorage.setItem("colorStyle", "type2");
-    [].forEach.call(oddElements,darkColor);
-  }
-  else if (localStorage.getItem("colorStyle") === "type2") {
+liSetup.addEventListener( "click" , function(){
+  switch (getLocalItem ("colorStyle")) {
+  case "type1":
+    setLocalItem ("colorStyle", "type2");
+    setElemColor("oddElements","darkColor");
+    break;
+  case "type2":
+    setLocalItem ("colorStyle", "type1");
+    setElemColor("oddElements","lightColor");
+    break;
+  default:
     localStorage.setItem("colorStyle", "type1");
-    [].forEach.call(oddElements,lightColor);
-  }
-  else {
-    localStorage.setItem("colorStyle", "type1");
-    [].forEach.call(oddElements,lightColor);
+    setElemColor("oddElements","lightColor");
   };
   }); 
 }
 
 
-
 else {
-  if (localStorage.getItem("colorStyle") === "type1") {
-    [].forEach.call(evenElements,lightColor);
-  }
-  else if (localStorage.getItem("colorStyle") === "type2") {
-    [].forEach.call(evenElements,darkColor);
-  }
-  else {
-    [].forEach.call(evenElements,darkColor);
+  switch (getLocalItem ("colorStyle")) {
+  case "type1":
+    setElemColor("evenElements","lightColor");
+    break;
+  case "type2":
+    setElemColor("evenElements","darkColor");
+    break;
+  default:
+    setElemColor("evenElements","darkColor");
   };
-
-opacitySetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("colorStyle") === "type1") {
-    localStorage.setItem("colorStyle", "type2");
-    [].forEach.call(evenElements,darkColor);
-  }
-  else if (localStorage.getItem("colorStyle") === "type2") {
+liSetup.addEventListener( "click" , function(){
+  switch (getLocalItem ("colorStyle")) {
+  case "type1":
+    setLocalItem ("colorStyle", "type2");
+    setElemColor("evenElements","darkColor");
+    break;
+  case "type2":
+    setLocalItem ("colorStyle", "type1");
+    setElemColor("evenElements","lightColor");
+    break;
+  default:
     localStorage.setItem("colorStyle", "type1");
-    [].forEach.call(evenElements,lightColor);
-  }
-  else {
-    localStorage.setItem("colorStyle", "type1");
-    [].forEach.call(evenElements,lightColor);
+    setElemColor("evenElements","lightColor");
   };
   });
 };
 
 
-  if (localStorage.getItem("menuStyle") === "type1") {
+//menuSetup
+
+  switch (getLocalItem ("menuStyle")) {
+  case "type1":
     menuStyle("block");
-  }
-  else if (localStorage.getItem("menuStyle") === "type2") {
+    break;
+  case "type2":
     menuStyle("none");
-  }
-  else {
+    break;
+  default:
     menuStyle("block");
-  }
+  };
 
 menuSetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("menuStyle") === "type1") {
-    localStorage.setItem("menuStyle", "type2");
+  switch (getLocalItem ("menuStyle")) {
+  case "type1":
+    setLocalItem ("menuStyle", "type2");
     menuStyle("none");
-  }
-  else if (localStorage.getItem("menuStyle") === "type2") {
-    localStorage.setItem("menuStyle", "type1");
+    break;
+  case "type2":
+    setLocalItem ("menuStyle", "type1");
     menuStyle("block");
-  }
-  else {
-    localStorage.setItem("menuStyle", "type2");
+    break;
+  default:
+    setLocalItem ("menuStyle", "type2");
     menuStyle("none");
-  }
+  };
   });
 
 
+//backgroundStyle
 
-
-  if (localStorage.getItem("backgroundStyle") === "type1") {
+  switch (getLocalItem ("backgroundStyle")) {
+  case "type1":
     setBackground("light");
-  }
-  else if (localStorage.getItem("backgroundStyle") === "type2") {
+    break;
+  case "type2":
     setBackground("dark");
-  }
-  else {
+    break;
+  default:
     setBackground("light");
-  }
+  };
 
 backgroundSetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("backgroundStyle") === "type1") {
-    localStorage.setItem("backgroundStyle", "type2");
+  switch (getLocalItem ("backgroundStyle")) {
+  case "type1":
+    setLocalItem ("backgroundStyle", "type2");
     setBackground("dark");
-  }
-  else if (localStorage.getItem("backgroundStyle") === "type2") {
-    localStorage.setItem("backgroundStyle", "type1");
+    break;
+  case "type2":
+    setLocalItem ("backgroundStyle", "type1");
     setBackground("light");
-  }
-  else {
-    localStorage.setItem("backgroundStyle", "type1");
+    break;
+  default:
+    setLocalItem ("backgroundStyle", "type1");
     setBackground("dark");
-  }
+  };
   });
 
 
+//dayWeek
 
-
-if (localStorage.getItem("dayWeek") === "type1") {
+  switch (getLocalItem ("dayWeek")) {
+  case "type1":
     setDayUrlHash();
-  }
-  else if (localStorage.getItem("dayWeek") === "type2") {
+    break;
+  case "type2":
     setDayUrlHash("disable");
-  }
-  else {
+    break;
+  default:
     setDayUrlHash("disable");
-  }
+  };
 
 daySetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("dayWeek") === "type1") {
-    localStorage.setItem("dayWeek", "type2");
+  switch (getLocalItem ("dayWeek")) {
+  case "type1":
+    setLocalItem ("dayWeek", "type2");
     setDayUrlHash("disable");
-  }
-  else if (localStorage.getItem("dayWeek") === "type2") {
-    localStorage.setItem("dayWeek", "type1");
+    break;
+  case "type2":
+    setLocalItem ("dayWeek", "type1");
     setDayUrlHash();
-  }
-  else {
-    localStorage.setItem("dayWeek", "type1");
+    break;
+  default:
+    setLocalItem ("dayWeek", "type1");
     setDayUrlHash();
-  }
+  };
   });
 
 }
