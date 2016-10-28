@@ -31,7 +31,7 @@
 }
 
 
-/* Основные стили */
+/* Main styles */
 
 
 * {
@@ -145,6 +145,10 @@ body {
 	border-radius: 0 0 5px 5px;
 }
 
+
+/* Left menu styles */
+
+
 .menu {
 	width: 150px;
 	background-color: #434b60;
@@ -214,6 +218,10 @@ body {
 	transition: opacity 0.1s ease-out;
 }
 
+
+/* Footer */
+
+
 .footer {
 	text-align: center;
 	margin: 40px auto;
@@ -267,6 +275,10 @@ body {
 	cursor: pointer;
 }
 
+.opacity-setup:active {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.43);
+}
+
 .background-setup {
 	width: 48px;
 	height: 48px;
@@ -286,6 +298,10 @@ body {
 .background-setup:hover {
 	opacity: 0.9;
 	cursor: pointer;
+}
+
+.background-setup:active {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.43);
 }
 
 .menu-setup {
@@ -308,6 +324,51 @@ body {
 	opacity: 0.9;
 	cursor: pointer;
 }
+
+.menu-setup:active {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.43);
+}
+
+
+/* Tooltips */
+
+
+.tooltip {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.tooltip:before {
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.tooltip:before {
+    top: 0px;
+    left: -265px;
+    padding: 5px 10px 5px 10px;
+    height: auto;
+    width: 250px;
+    color: white;
+    background-color: #b5a1dd;
+    content: attr(data-title);
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.tooltip:hover:before {
+    opacity: 1;
+    margin-bottom: 0;
+    visibility: visible;
+}
+
+
+/* Media queries */
+
 
 @media screen and (max-width: 1050px) {
     .menu {
