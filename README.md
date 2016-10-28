@@ -1,6 +1,6 @@
 # LightweightSchedule
 
-![previewImgMain](marchenkovdmitry.com/projects/raspisanie/github_img/OZIKYKGwI98.jpg "")
+![previewImgMain](https://marchenkovdmitry.com/projects/raspisanie/github_img/OZIKYKGwI98.jpg "")
 
 Что это?
 ========================
@@ -43,6 +43,8 @@ http://marchenkovdmitry.com/projects/raspisanie/
 зеркало:
 http://raspisanie.marchenkovdmitry.com
 
+Скриншоты
+========================
 ![previewImg1](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture1.JPG "")
 ![previewImg2](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture2.JPG "")
 ![previewImg3](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture3.JPG "")
