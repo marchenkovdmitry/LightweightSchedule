@@ -273,7 +273,7 @@ body {
 	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.43);
 }
 
-.menu-setup {
+.day-setup {
 	width: 48px;
 	height: 48px;
 	box-sizing: border-box;
@@ -281,6 +281,31 @@ body {
 	border-radius: 0 5px 5px 0;
 	background-color: #2d72d9;
 	margin-top: 470px;
+	position: fixed;
+	background-image: url("../img/ic_swap_vert_white_36px.svg");
+	background-repeat: no-repeat;
+	background-position: 4px 5px;
+	background-size: 80%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.day-setup:hover {
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.day-setup:active {
+	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.43);
+}
+
+.menu-setup {
+	width: 48px;
+	height: 48px;
+	box-sizing: border-box;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	background-color: #2d72d9;
+	margin-top: 530px;
 	position: fixed;
 	background-image: url("../img/ic_menu_white_36px.svg");
 	background-repeat: no-repeat;
@@ -366,12 +391,23 @@ body {
         background-position: 30px 8px;
         background-size: 35%;
         width: 100px;
-         margin-left: 55px;
+        margin-left: 15px;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .day-setup {
+        position: static;
+        margin: 0;
+        display: inline-block;
+        background-position: 30px 8px;
+        background-size: 35%;
+        width: 100px;
+        margin-left: 15px;
         border-radius: 0 0 5px 5px;
     }
 
     .btn-container {
-        width: 260px;
+        width: 340px;
         height: 48px;
         margin: 0 auto;
     }

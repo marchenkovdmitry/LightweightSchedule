@@ -11,7 +11,8 @@ var dt,
     menuSetup = document.querySelector(".menu-setup"),
     body = document.querySelector("body"),
     footer = document.querySelector(".footer"),
-    backgroundSetup = document.querySelector(".background-setup");
+    backgroundSetup = document.querySelector(".background-setup"),
+    daySetup = document.querySelector(".day-setup");
     
     function darkColor (element) {
       element.style.background = "#61697c";
@@ -36,6 +37,31 @@ var dt,
         body.style.backgroundImage = "url(img/escheresque_ste.png)";
         footer.style.color = "#fff";
       };
+    };
+    function setDayUrlHash(key) {
+      var currentDay = new Date().getDay();
+      if (key === "disable") {location.hash = ""}
+       else {
+          switch (currentDay) {
+          case 1:
+            location.hash = "monday";
+            break;
+          case 2:
+            location.hash = "tuesday";
+            break;
+          case 3:
+            location.hash = "wednesday";
+            break;
+          case 4:
+            location.hash = "thursday";
+            break;
+          case 5:
+            location.hash = "friday";
+            break;
+          default:
+            location.hash = "";
+          };
+       };
     };
 
 
@@ -167,7 +193,35 @@ backgroundSetup.addEventListener( "click" , function(){
   }
   else {
     localStorage.setItem("backgroundStyle", "type1");
-    setBackground("light");
+    setBackground("dark");
+  }
+  });
+
+
+
+
+if (localStorage.getItem("dayWeek") === "type1") {
+    setDayUrlHash();
+  }
+  else if (localStorage.getItem("dayWeek") === "type2") {
+    setDayUrlHash("disable");
+  }
+  else {
+    setDayUrlHash("disable");
+  }
+
+daySetup.addEventListener( "click" , function(){
+  if (localStorage.getItem("dayWeek") === "type1") {
+    localStorage.setItem("dayWeek", "type2");
+    setDayUrlHash("disable");
+  }
+  else if (localStorage.getItem("dayWeek") === "type2") {
+    localStorage.setItem("dayWeek", "type1");
+    setDayUrlHash();
+  }
+  else {
+    localStorage.setItem("dayWeek", "type1");
+    setDayUrlHash();
   }
   });
 
