@@ -341,42 +341,39 @@ body {
 
 @media screen and (max-width: 1050px) {
     .menu {
-        visibility:hidden
+        visibility:hidden;
     }
 
     .menu-setup {
-        visibility: hidden
+        visibility: hidden;
     }
 }
 
 @media screen and (max-width: 800px) {
     .opacity-setup {
         position:static;
+        margin: 0;
         display: inline-block;
-        margin: 0 auto;
         width: 100px;
         background-position: 30px 6px;
-        border-radius: 0 0 5px 5px
+        border-radius: 0 0 5px 5px;
     }
 
     .background-setup {
         position: static;
+        margin: 0;
         display: inline-block;
-        margin: 0 auto;
         background-position: 30px 8px;
         background-size: 35%;
         width: 100px;
-        border-radius: 0 0 5px 5px
-    }
-
-    .l-mrgn {
-        margin-left: 55px
+         margin-left: 55px;
+        border-radius: 0 0 5px 5px;
     }
 
     .btn-container {
         width: 260px;
         height: 48px;
-        margin: 0 auto
+        margin: 0 auto;
     }
 }
 
