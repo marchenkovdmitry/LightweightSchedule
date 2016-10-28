@@ -1,10 +1,7 @@
 (function() {
 "use strict";
 
-var dt,
-    d1 = new Date(),
-    d0 = new Date(),
-    oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
+var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
     evenElements = document.querySelectorAll('.day_week li:nth-child(even)'),
     liSetup = document.querySelector(".li-setup"),
     menu = document.querySelector(".menu"),
@@ -34,15 +31,15 @@ var dt,
         [].forEach.call(evenElements,darkColor);
       }
       else {
-        return
+        return;
       };
     };
     function setLocalItem (item,type) {
       localStorage.setItem(item,type);
-    }
+    };
     function getLocalItem (item) {
       return localStorage.getItem(item);
-    }
+    };
     function menuStyle (key) {
       switch (key) {
         case "block":
@@ -92,10 +89,17 @@ var dt,
           };
        };
     };
-
-
-d0.setFullYear((new Date()).getMonth() < 9 ? (new Date()).getFullYear() - 1 : (new Date()).getFullYear(), 8, 1); 
-dt = Math.floor(((d1.getTime() - d0.getTime() + 1000*60*60*24) / (1000*60*60*24*7)) + 1); 
+    Date.prototype.getWeek = function () {
+        var target = new Date(this.valueOf());
+        var dayNr = (this.getDay() + 6) % 7;
+        target.setDate(target.getDate() - dayNr + 3);
+        var firstThursday = target.valueOf();
+        target.setMonth(0, 1);
+        if (target.getDay() != 4) {
+        target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
+        }
+        return 1 + Math.ceil((firstThursday - target) / 604800000);
+    };
 
 
 //Local storage support
@@ -112,11 +116,11 @@ function storageAvailable(type) {
   catch(e) {
     return false;
   }
-}
+};
 
 
 if (storageAvailable('localStorage')) {
-if(dt % 2) {
+if(new Date().getWeek() % 2 !== 0) {
   switch (getLocalItem ("colorStyle")) {
   case "type1":
     setElemColor("oddElements","lightColor");
@@ -143,8 +147,6 @@ liSetup.addEventListener( "click" , function(){
   };
   }); 
 }
-
-
 else {
   switch (getLocalItem ("colorStyle")) {
   case "type1":
@@ -262,11 +264,9 @@ daySetup.addEventListener( "click" , function(){
     setDayUrlHash();
   };
   });
-
 }
 else {
   console.log("Sorry. We can't use localStorage awesomeness :(")
 };
-
 })();
 
