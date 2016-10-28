@@ -12,13 +12,12 @@ var dt,
     body = document.querySelector("body"),
     footer = document.querySelector(".footer"),
     backgroundSetup = document.querySelector(".background-setup");
-
-
-    function maxOpacity (element) {
-      element.style.opacity = ".9";
+    
+    function darkColor (element) {
+      element.style.background = "#61697c";
     };
-    function minOpacity (element) {
-      element.style.opacity = "1";
+    function lightColor (element) {
+      element.style.background = "#4f5a6e";
     };
     function menuStyle (key) {
       if (key === "block") {
@@ -37,8 +36,8 @@ var dt,
         body.style.backgroundImage = "url(img/escheresque_ste.png)";
         footer.style.color = "#fff";
       };
-    }
-    
+    };
+
 
 d0.setFullYear((new Date()).getMonth() < 9 ? (new Date()).getFullYear() - 1 : (new Date()).getFullYear(), 8, 1); 
 dt = Math.floor(((d1.getTime() - d0.getTime() + 1000*60*60*24) / (1000*60*60*24*7)) + 1); 
@@ -63,61 +62,60 @@ function storageAvailable(type) {
 
 if (storageAvailable('localStorage')) {
 if(dt % 2) {
-  if (localStorage.getItem("transparencyStyle") === "type1") {
-    [].forEach.call(oddElements,minOpacity);
+  if (localStorage.getItem("colorStyle") === "type1") {
+    [].forEach.call(oddElements,lightColor);
   }
-  else if (localStorage.getItem("transparencyStyle") === "type2") {
-    [].forEach.call(oddElements,maxOpacity);
+  else if (localStorage.getItem("colorStyle") === "type2") {
+    [].forEach.call(oddElements,darkColor);
   }
   else {
-    [].forEach.call(oddElements,maxOpacity);
+    [].forEach.call(oddElements,darkColor);
   };
 
 opacitySetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("transparencyStyle") === "type1") {
-    localStorage.setItem("transparencyStyle", "type2");
-    [].forEach.call(oddElements,maxOpacity);
+  if (localStorage.getItem("colorStyle") === "type1") {
+    localStorage.setItem("colorStyle", "type2");
+    [].forEach.call(oddElements,darkColor);
   }
-  else if (localStorage.getItem("transparencyStyle") === "type2") {
-    localStorage.setItem("transparencyStyle", "type1");
-    [].forEach.call(oddElements,minOpacity);
+  else if (localStorage.getItem("colorStyle") === "type2") {
+    localStorage.setItem("colorStyle", "type1");
+    [].forEach.call(oddElements,lightColor);
   }
   else {
-    localStorage.setItem("transparencyStyle", "type1");
-    [].forEach.call(oddElements,minOpacity);
+    localStorage.setItem("colorStyle", "type1");
+    [].forEach.call(oddElements,lightColor);
   };
-  });
+  }); 
 }
 
 
 
 else {
-  if (localStorage.getItem("transparencyStyle") === "type1") {
-    [].forEach.call(evenElements,minOpacity);
+  if (localStorage.getItem("colorStyle") === "type1") {
+    [].forEach.call(evenElements,lightColor);
   }
-  else if (localStorage.getItem("transparencyStyle") === "type2") {
-    [].forEach.call(evenElements,maxOpacity);
+  else if (localStorage.getItem("colorStyle") === "type2") {
+    [].forEach.call(evenElements,darkColor);
   }
   else {
-    [].forEach.call(evenElements,maxOpacity);
+    [].forEach.call(evenElements,darkColor);
   };
 
 opacitySetup.addEventListener( "click" , function(){
-  if (localStorage.getItem("transparencyStyle") === "type1") {
-    localStorage.setItem("transparencyStyle", "type2");
-    [].forEach.call(evenElements,maxOpacity);
+  if (localStorage.getItem("colorStyle") === "type1") {
+    localStorage.setItem("colorStyle", "type2");
+    [].forEach.call(evenElements,darkColor);
   }
-  else if (localStorage.getItem("transparencyStyle") === "type2") {
-    localStorage.setItem("transparencyStyle", "type1");
-    [].forEach.call(evenElements,minOpacity);
+  else if (localStorage.getItem("colorStyle") === "type2") {
+    localStorage.setItem("colorStyle", "type1");
+    [].forEach.call(evenElements,lightColor);
   }
   else {
-    localStorage.setItem("transparencyStyle", "type1");
-    [].forEach.call(evenElements,minOpacity);
+    localStorage.setItem("colorStyle", "type1");
+    [].forEach.call(evenElements,lightColor);
   };
   });
 };
-
 
 
   if (localStorage.getItem("menuStyle") === "type1") {
@@ -169,7 +167,7 @@ backgroundSetup.addEventListener( "click" , function(){
   }
   else {
     localStorage.setItem("backgroundStyle", "type1");
-    setBackground("dark");
+    setBackground("light");
   }
   });
 
