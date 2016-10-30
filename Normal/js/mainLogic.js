@@ -294,6 +294,7 @@ daySetup.addEventListener( "click" , function(){
 // keyboardNavigation
 
 body.addEventListener( "keypress" , ManualSetDayUrlHash);
+
 }
 else {
   console.log("Sorry. We can't use localStorage awesomeness :(")
