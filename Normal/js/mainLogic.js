@@ -1,17 +1,15 @@
 (function() {
 "use strict";
 
-var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
-    evenElements = document.querySelectorAll('.day_week li:nth-child(even)'),
+var body = document.querySelector("body"),
     liSetup = document.querySelector(".li-setup"),
-    menu = document.querySelector(".menu"),
-    menuSetup = document.querySelector(".menu-setup"),
-    body = document.querySelector("body"),
-    footer = document.querySelector(".footer"),
     backgroundSetup = document.querySelector(".background-setup"),
-    daySetup = document.querySelector(".day-setup");
+    daySetup = document.querySelector(".day-setup"),
+    menuSetup = document.querySelector(".menu-setup");
 
     function setElemColor(element,color) {
+      var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
+          evenElements = document.querySelectorAll('.day_week li:nth-child(even)');
       function darkColor (elem) {
         elem.style.background = "#61697c";
       };
@@ -31,7 +29,7 @@ var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
         [].forEach.call(evenElements,darkColor);
       }
       else {
-        return;
+        return
       };
     };
     function setLocalItem (item,type) {
@@ -41,6 +39,7 @@ var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
       return localStorage.getItem(item);
     };
     function menuStyle (key) {
+      var menu = document.querySelector(".menu");
       switch (key) {
         case "block":
           menu.style.display = "block";
@@ -52,6 +51,7 @@ var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
       };
     };
     function setBackground (key) {
+          var footer = document.querySelector(".footer");
       switch (key) {
         case "light":
           body.style.backgroundImage = "url(img/diagonal_striped_brick.png)";
@@ -89,13 +89,13 @@ var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
           };
        };
     };
-    function ManualSetDayUrlHash(event) {
+    function manualSetDayUrlHash(event) {
       var pressKey;
-      if (event.which == null) {
+      if (event.which === null) {
         if (event.keyCode < 32) return;
         pressKey = String.fromCharCode(event.keyCode);
       };
-      if (event.which != 0 && event.charCode != 0) {
+      if (event.which !== 0 && event.charCode !== 0) {
         if (event.which < 32) return;
         pressKey = String.fromCharCode(event.which);
       };
@@ -129,7 +129,33 @@ var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
         }
         return 1 + Math.ceil((firstThursday - target) / 604800000);
     };
-
+    function styleSetup(obj) {
+       switch (getLocalItem (obj.localItem)) {
+       case "type1":
+         obj.funcName(obj.funcNameArg1,obj.funcNameArg2);
+         break;
+       case "type2":
+         obj.funcName(obj.funcNameArg3,obj.funcNameArg4);
+         break;
+       default:
+         obj.funcName(obj.funcNameArg5,obj.funcNameArg6);
+       };
+    };
+    function manualStyleSetup(obj) {
+       switch (getLocalItem (obj.localItem)) {
+       case "type1":
+         setLocalItem (obj.setLocalItemArg1, obj.setLocalItemArg2);
+         obj.funcName(obj.funcNameArg1, obj.funcNameArg2);
+         break;
+       case "type2":
+         setLocalItem (obj.setLocalItemArg3, obj.setLocalItemArg4);
+         obj.funcName(obj.funcNameArg3, obj.funcNameArg4);
+         break;
+       default:
+         setLocalItem (obj.setLocalItemArg5, obj.setLocalItemArg6);
+         obj.funcName(obj.funcNameArg5, obj.funcNameArg6);
+       };
+    };
 
 //Local storage support
 
@@ -149,151 +175,145 @@ function storageAvailable(type) {
 
 
 if (storageAvailable('localStorage')) {
-if(new Date().getWeek() % 2 !== 0) {
-  switch (getLocalItem ("colorStyle")) {
-  case "type1":
-    setElemColor("oddElements","lightColor");
-    break;
-  case "type2":
-    setElemColor("oddElements","darkColor");
-    break;
-  default:
-    setElemColor("oddElements","darkColor");
+
+
+  if (new Date().getWeek() % 2 !== 0) {
+    styleSetup({
+      localItem: "colorStyle",
+      funcName: setElemColor,
+      funcNameArg1: "oddElements",
+      funcNameArg2: "lightColor",
+      funcNameArg3: "oddElements",
+      funcNameArg4: "darkColor",
+      funcNameArg5: "oddElements",
+      funcNameArg6: "darkColor"
+    });
+    liSetup.addEventListener( "click" , function() {manualStyleSetup({
+       localItem: "colorStyle",
+       funcName: setElemColor,
+       setLocalItemArg1: "colorStyle",
+       setLocalItemArg2: "type2",
+       setLocalItemArg3: "colorStyle",
+       setLocalItemArg4: "type1",
+       setLocalItemArg5: "colorStyle",
+       setLocalItemArg6: "type1",
+       funcNameArg1: "oddElements",
+       funcNameArg2: "darkColor",
+       funcNameArg3: "oddElements",
+       funcNameArg4: "lightColor",
+       funcNameArg5: "oddElements",
+       funcNameArg6: "lightColor"
+    });
+   });
+
+  }
+  else {
+    styleSetup({
+      localItem: "colorStyle",
+      funcName: setElemColor,
+      funcNameArg1: "evenElements",
+      funcNameArg2: "lightColor",
+      funcNameArg3: "evenElements",
+      funcNameArg4: "darkColor",
+      funcNameArg5: "evenElements",
+      funcNameArg6: "darkColor"
+    });
+    liSetup.addEventListener( "click" , function() {manualStyleSetup({
+       localItem: "colorStyle",
+       funcName: setElemColor,
+       setLocalItemArg1: "colorStyle",
+       setLocalItemArg2: "type2",
+       setLocalItemArg3: "colorStyle",
+       setLocalItemArg4: "type1",
+       setLocalItemArg5: "colorStyle",
+       setLocalItemArg6: "type1",
+       funcNameArg1: "evenElements",
+       funcNameArg2: "darkColor",
+       funcNameArg3: "evenElements",
+       funcNameArg4: "lightColor",
+       funcNameArg5: "evenElements",
+       funcNameArg6: "lightColor"
+    });
+   });
   };
-liSetup.addEventListener( "click" , function(){
-  switch (getLocalItem ("colorStyle")) {
-  case "type1":
-    setLocalItem ("colorStyle", "type2");
-    setElemColor("oddElements","darkColor");
-    break;
-  case "type2":
-    setLocalItem ("colorStyle", "type1");
-    setElemColor("oddElements","lightColor");
-    break;
-  default:
-    localStorage.setItem("colorStyle", "type1");
-    setElemColor("oddElements","lightColor");
-  };
-  }); 
-}
-else {
-  switch (getLocalItem ("colorStyle")) {
-  case "type1":
-    setElemColor("evenElements","lightColor");
-    break;
-  case "type2":
-    setElemColor("evenElements","darkColor");
-    break;
-  default:
-    setElemColor("evenElements","darkColor");
-  };
-liSetup.addEventListener( "click" , function(){
-  switch (getLocalItem ("colorStyle")) {
-  case "type1":
-    setLocalItem ("colorStyle", "type2");
-    setElemColor("evenElements","darkColor");
-    break;
-  case "type2":
-    setLocalItem ("colorStyle", "type1");
-    setElemColor("evenElements","lightColor");
-    break;
-  default:
-    localStorage.setItem("colorStyle", "type1");
-    setElemColor("evenElements","lightColor");
-  };
-  });
-};
+
 
 //menuSetup
 
-  switch (getLocalItem ("menuStyle")) {
-  case "type1":
-    menuStyle("block");
-    break;
-  case "type2":
-    menuStyle("none");
-    break;
-  default:
-    menuStyle("block");
-  };
 
-menuSetup.addEventListener( "click" , function(){
-  switch (getLocalItem ("menuStyle")) {
-  case "type1":
-    setLocalItem ("menuStyle", "type2");
-    menuStyle("none");
-    break;
-  case "type2":
-    setLocalItem ("menuStyle", "type1");
-    menuStyle("block");
-    break;
-  default:
-    setLocalItem ("menuStyle", "type2");
-    menuStyle("none");
-  };
-  });
+styleSetup({
+  localItem: "menuStyle",
+  funcName: menuStyle,
+  funcNameArg1: "block",
+  funcNameArg3: "none",
+  funcNameArg5: "none"
+});
+
+menuSetup.addEventListener( "click" , function() { 
+manualStyleSetup({
+  localItem: "menuStyle",
+  funcName: menuStyle,
+  setLocalItemArg1: "menuStyle",
+  setLocalItemArg2: "type2",
+  setLocalItemArg3: "menuStyle",
+  setLocalItemArg4: "type1",
+  setLocalItemArg5: "menuStyle",
+  setLocalItemArg6: "type2",
+  funcNameArg1: "none",
+  funcNameArg3: "block",
+  funcNameArg5: "none"
+  }); });
 
 //backgroundStyle
 
-  switch (getLocalItem ("backgroundStyle")) {
-  case "type1":
-    setBackground("light");
-    break;
-  case "type2":
-    setBackground("dark");
-    break;
-  default:
-    setBackground("light");
-  };
+styleSetup({
+  localItem: "backgroundStyle",
+  funcName: setBackground,
+  funcNameArg1: "light",
+  funcNameArg3: "dark",
+  funcNameArg5: "light"
+});
 
-backgroundSetup.addEventListener( "click" , function(){
-  switch (getLocalItem ("backgroundStyle")) {
-  case "type1":
-    setLocalItem ("backgroundStyle", "type2");
-    setBackground("dark");
-    break;
-  case "type2":
-    setLocalItem ("backgroundStyle", "type1");
-    setBackground("light");
-    break;
-  default:
-    setLocalItem ("backgroundStyle", "type1");
-    setBackground("dark");
-  };
-  });
+backgroundSetup.addEventListener( "click" , function() { 
+manualStyleSetup({
+  localItem: "backgroundStyle",
+  funcName: setBackground,
+  setLocalItemArg1: "backgroundStyle",
+  setLocalItemArg2: "type2",
+  setLocalItemArg3: "backgroundStyle",
+  setLocalItemArg4: "type1",
+  setLocalItemArg5: "backgroundStyle",
+  setLocalItemArg6: "type2",
+  funcNameArg1: "dark",
+  funcNameArg3: "light",
+  funcNameArg5: "dark"
+  }); });
 
 //dayWeek
 
-  switch (getLocalItem ("dayWeek")) {
-  case "type1":
-    setDayUrlHash();
-    break;
-  case "type2":
-    setDayUrlHash("disable");
-    break;
-  default:
-    setDayUrlHash("disable");
-  };
-
-daySetup.addEventListener( "click" , function(){
-  switch (getLocalItem ("dayWeek")) {
-  case "type1":
-    setLocalItem ("dayWeek", "type2");
-    setDayUrlHash("disable");
-    break;
-  case "type2":
-    setLocalItem ("dayWeek", "type1");
-    setDayUrlHash();
-    break;
-  default:
-    setLocalItem ("dayWeek", "type1");
-    setDayUrlHash();
-  };
-  });
+styleSetup({
+  localItem: "dayWeek",
+  funcName: setDayUrlHash,
+  funcNameArg1: "",
+  funcNameArg3: "disable",
+  funcNameArg5: "disable"
+});
+daySetup.addEventListener( "click" , function() { 
+manualStyleSetup({
+  localItem: "dayWeek",
+  funcName: setDayUrlHash,
+  setLocalItemArg1: "dayWeek",
+  setLocalItemArg2: "type2",
+  setLocalItemArg3: "dayWeek",
+  setLocalItemArg4: "type1",
+  setLocalItemArg5: "dayWeek",
+  setLocalItemArg6: "type2",
+  funcNameArg1: "disable"
+  }); });
 
 // keyboardNavigation
 
-body.addEventListener( "keypress" , ManualSetDayUrlHash);
+body.addEventListener( "keypress" , manualSetDayUrlHash);
 
 }
 else {
