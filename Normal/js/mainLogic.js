@@ -12,10 +12,10 @@ var body = document.querySelector("body"),
           evenElements = document.querySelectorAll('.day_week li:nth-child(even)');
       function darkColor (elem) {
         elem.style.background = "#61697c";
-      };
+      }
       function lightColor (elem) {
         elem.style.background = "#4f5a6e";
-      };
+      }
       if (element === "oddElements" && color === "lightColor") {
         [].forEach.call(oddElements,lightColor);
       }
@@ -29,15 +29,15 @@ var body = document.querySelector("body"),
         [].forEach.call(evenElements,darkColor);
       }
       else {
-        return
-      };
-    };
+        return;
+      }
+    }
     function setLocalItem (item,type) {
       localStorage.setItem(item,type);
-    };
+    }
     function getLocalItem (item) {
       return localStorage.getItem(item);
-    };
+    }
     function menuStyle (key) {
       var menu = document.querySelector(".menu");
       switch (key) {
@@ -48,8 +48,8 @@ var body = document.querySelector("body"),
           menu.style.display = "none";
           break;
         default:
-      };
-    };
+      }
+    }
     function setBackground (key) {
           var footer = document.querySelector(".footer");
       switch (key) {
@@ -62,11 +62,11 @@ var body = document.querySelector("body"),
           footer.style.color = "#fff";
           break;
         default:
-      };
-    };
+      }
+    }
     function setDayUrlHash(key) {
       var currentDay = new Date().getDay();
-      if (key === "disable") {location.hash = ""}
+      if (key === "disable") {location.hash = "";}
        else {
           switch (currentDay) {
           case 1:
@@ -86,19 +86,19 @@ var body = document.querySelector("body"),
             break;
           default:
             location.hash = "";
-          };
-       };
-    };
+          }
+       }
+    }
     function manualSetDayUrlHash(event) {
       var pressKey;
       if (event.which === null) {
         if (event.keyCode < 32) return;
         pressKey = String.fromCharCode(event.keyCode);
-      };
+      }
       if (event.which !== 0 && event.charCode !== 0) {
         if (event.which < 32) return;
         pressKey = String.fromCharCode(event.which);
-      };
+      }
       switch (pressKey) {
       case "1":
         location.hash = "monday";
@@ -116,8 +116,8 @@ var body = document.querySelector("body"),
         location.hash = "friday";
         break;
       default:
-      };
-    };
+      }
+    }
     Date.prototype.getWeek = function () {
         var target = new Date(this.valueOf());
         var dayNr = (this.getDay() + 6) % 7;
@@ -139,8 +139,8 @@ var body = document.querySelector("body"),
          break;
        default:
          obj.funcName(obj.funcNameArg5,obj.funcNameArg6);
-       };
-    };
+       }
+    }
     function manualStyleSetup(obj) {
        switch (getLocalItem (obj.localItem)) {
        case "type1":
@@ -154,8 +154,8 @@ var body = document.querySelector("body"),
        default:
          setLocalItem (obj.setLocalItemArg5, obj.setLocalItemArg6);
          obj.funcName(obj.funcNameArg5, obj.funcNameArg6);
-       };
-    };
+       }
+    }
 
 //Local storage support
 
@@ -171,7 +171,7 @@ function storageAvailable(type) {
   catch(e) {
     return false;
   }
-};
+}
 
 
 if (storageAvailable('localStorage')) {
@@ -235,7 +235,7 @@ if (storageAvailable('localStorage')) {
        funcNameArg6: "lightColor"
     });
    });
-  };
+  }
 
 
 //menuSetup
@@ -317,7 +317,7 @@ body.addEventListener( "keypress" , manualSetDayUrlHash);
 
 }
 else {
-  console.log("Sorry. We can't use localStorage awesomeness :(")
-};
+  console.log("Sorry. We can't use localStorage awesomeness :(");
+}
 })();
 
