@@ -7,6 +7,15 @@ var body = document.querySelector("body"),
     daySetup = document.querySelector(".day-setup"),
     menuSetup = document.querySelector(".menu-setup");
 
+    function EvenOrOdd() {
+      //returns false if the week even, or true if the week odd
+      if (new Date().getWeek() % 2 === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
     function setElemColor(element,color) {
       var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
           evenElements = document.querySelectorAll('.day_week li:nth-child(even)');
@@ -32,12 +41,15 @@ var body = document.querySelector("body"),
         return;
       }
     }
+
     function setLocalItem (item,type) {
       localStorage.setItem(item,type);
     }
+
     function getLocalItem (item) {
       return localStorage.getItem(item);
     }
+
     function menuStyle (key) {
       var menu = document.querySelector(".menu");
       switch (key) {
@@ -50,6 +62,7 @@ var body = document.querySelector("body"),
         default:
       }
     }
+
     function setBackground (key) {
           var footer = document.querySelector(".footer");
       switch (key) {
@@ -64,6 +77,20 @@ var body = document.querySelector("body"),
         default:
       }
     }
+
+    function DetectPressKey(event) {
+      var pressKey;
+      if (event.which === null) {
+        if (event.keyCode < 32) return;
+        pressKey = String.fromCharCode(event.keyCode);
+      }
+      if (event.which !== 0 && event.charCode !== 0) {
+        if (event.which < 32) return;
+        pressKey = String.fromCharCode(event.which);
+      }
+      return pressKey;
+    }
+
     function setDayUrlHash(key) {
       var currentDay = new Date().getDay();
       if (key === "disable") {location.hash = "";}
@@ -86,20 +113,13 @@ var body = document.querySelector("body"),
             break;
           default:
             location.hash = "";
-          }
-       }
+        }
+      }
     }
+
     function manualSetDayUrlHash(event) {
-      var pressKey;
-      if (event.which === null) {
-        if (event.keyCode < 32) return;
-        pressKey = String.fromCharCode(event.keyCode);
-      }
-      if (event.which !== 0 && event.charCode !== 0) {
-        if (event.which < 32) return;
-        pressKey = String.fromCharCode(event.which);
-      }
-      switch (pressKey) {
+      var presskey = DetectPressKey(event);
+      switch (presskey) {
       case "1":
         location.hash = "monday";
         break;
@@ -118,6 +138,7 @@ var body = document.querySelector("body"),
       default:
       }
     }
+
     Date.prototype.getWeek = function () {
         var target = new Date(this.valueOf());
         var dayNr = (this.getDay() + 6) % 7;
@@ -129,6 +150,7 @@ var body = document.querySelector("body"),
         }
         return 1 + Math.ceil((firstThursday - target) / 604800000);
     };
+
     function styleSetup(obj) {
        switch (getLocalItem (obj.localItem)) {
        case "type1":
@@ -141,6 +163,7 @@ var body = document.querySelector("body"),
          obj.funcName(obj.funcNameArg5,obj.funcNameArg6);
        }
     }
+
     function manualStyleSetup(obj) {
        switch (getLocalItem (obj.localItem)) {
        case "type1":
@@ -177,7 +200,7 @@ function storageAvailable(type) {
 if (storageAvailable('localStorage')) {
 
 
-  if (new Date().getWeek() % 2 !== 0) {
+  if (EvenOrOdd()) {
     styleSetup({
       localItem: "colorStyle",
       funcName: setElemColor,
