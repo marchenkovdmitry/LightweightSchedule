@@ -93,6 +93,7 @@ var body = document.querySelector("body"),
 
     function setDayUrlHash(key) {
       var currentDay = new Date().getDay();
+      if (currentDay === 6 || currentDay === 0) {daySetup.style.display = "none";}
       if (key === "disable") {location.hash = "";}
        else {
           switch (currentDay) {
