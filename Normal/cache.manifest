@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v.1.6.5
+# v.1.6.6
 
 CACHE:
 index.html
@@ -21,8 +21,7 @@ img/ic_invert_colors_white_36px.svg
 img/ic_lightbulb_outline_white_36px.svg
 img/ic_menu_white_36px.svg
 img/ic_swap_vert_white_36px.svg
-js/fastClick.js
-js/mainLogic.js
+js/main.js
 
 
 NETWORK:
