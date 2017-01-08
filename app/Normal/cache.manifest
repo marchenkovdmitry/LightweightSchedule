@@ -1,0 +1,30 @@
+CACHE MANIFEST
+# v.1.6.7
+
+CACHE:
+index.html
+css/styles.css
+img/favicons/android-chrome-192x192.png
+img/favicons/apple-touch-icon.png
+img/favicons/browserconfig.xml
+img/favicons/favicon.ico
+img/favicons/favicon-16x16.png
+img/favicons/favicon-32x32.png
+img/favicons/manifest.json
+img/favicons/mstile-150x150.png
+img/favicons/safari-pinned-tab.svg
+img/diagonal_striped_brick.png
+img/escheresque_ste.png
+img/ic_arrow_upward_white_18px.svg
+img/ic_bookmark_white_48px.svg
+img/ic_invert_colors_white_36px.svg
+img/ic_lightbulb_outline_white_36px.svg
+img/ic_menu_white_36px.svg
+img/ic_swap_vert_white_36px.svg
+js/main.js
+
+
+NETWORK:
+
+
+FALLBACK:

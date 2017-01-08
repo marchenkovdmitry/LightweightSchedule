@@ -1,0 +1,299 @@
+@charset "UTF-8";
+
+/*!
+ * animate.css -http://daneden.me/animate
+ * Version - 3.5.1
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2016 Daniel Eden
+ */
+
+.animated {
+  -webkit-animation-duration: .7s;
+  animation-duration: .7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+
+/* Основные стили */
+
+
+* {
+	padding: 0;
+	margin: 0;
+}
+     
+body {
+	background-image: url("../img/diagonal_striped_brick.png");
+	background-color: #fff;
+	font-family: "PT Sans", Georgia, "Times New Roman", serif; 
+	height: 100%;
+	width: 100%; 
+} 
+
+
+/* Разметка каркаса */
+
+
+.wrapper-main {
+	width: 670px;
+	height: auto;
+	margin: 50px auto;
+	opacity: 0.92;
+}
+
+
+/* Стили расписания */
+
+
+.main_title {
+	background-color: #434b60;
+	line-height: 60px;
+	color:#fff;
+	font-weight: 600;
+	font-size: 14pt;
+	text-align:center;
+	margin: 15px 0 0 0;
+	border-radius: 5px 5px 0 0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	position: relative;
+}
+
+.main_title:before {
+	content: "";
+	background-image: url("../img/ic_bookmark_white_48dp_1x.png");
+	opacity: 0.3;
+	position: absolute;
+	top: -8px;
+	left: 5px;
+	width: 48px;
+	height: 48px;
+}
+
+.day_week li {
+	background-color: #4f5a6e;
+	font-size: 12pt;
+	list-style: none;
+	padding: 10px 0 25px 10px;
+	color: #fff;
+	transition: opacity 0.3s ease-out;
+}
+
+.num {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12pt;
+}
+
+.time {
+	width: 100px;
+	height: auto;
+	display: inline-block;
+	margin: 0 0 0 20px;
+	vertical-align: middle;
+}
+
+.predmet {
+	width: 300px;
+	margin: 0 0 0 20px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.auditory {
+	display: inline-block;
+	width: 50px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.prep {
+	width: 120px;
+	display: inline-block;
+	margin: 0 0 0 10px;
+	vertical-align: middle;
+	text-align: right;
+}
+
+
+/* Закругления и разделители предметов */
+
+
+.wrapper-main li:nth-child(2), 
+.wrapper-main li:nth-child(6),
+.wrapper-main li:nth-child(4) {
+	border-bottom: 2px dotted #fff;
+}
+
+.wrapper-main li:nth-last-child(1) {
+	border-radius: 0 0 5px 5px;
+}
+
+
+@media screen and (max-width: 1050px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .background-setup {
+    	display: none;
+    }
+    .menu-setup {
+    	display: none;
+    }
+}
+
+
+.menu {
+	width: 150px;
+	background-color: #434b60;
+	border-radius: 0 5px 5px 0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	padding: 5px 10px 5px 0;
+	opacity: 0.9;
+	position: fixed;
+}
+
+.menu li{
+	list-style-type: none;  
+	font-size: 12pt;
+}
+
+.menu a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: 500;
+}
+
+.menu a:visited {
+	text-decoration: none;
+}
+
+.menu-link {
+	font-size: 12pt;
+	height: 50px;
+	display:block;
+	background-color: #4f5a6e;
+	border-radius: 0 5px 5px 0;
+	margin: 10px 0 10px 0;
+	padding: 0 0 0 15px;
+	box-sizing: border-box;
+	line-height: 50px;
+}
+
+.menu li:hover {
+	text-decoration: none;
+	opacity: 0.6;
+	transition: opacity 0.1s ease-out;
+}
+
+
+/* Оформление кнопки наверх */
+
+
+.bottom_link_top {
+	width: auto;
+	height: 50px;
+	line-height: 50px;
+	display: block;
+	text-decoration: none;
+	margin: 20px 0 50px 0;
+	color: #fff;
+	background-color: #2d72d9;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 12pt;
+}
+
+.bottom_link_top:hover {
+	text-decoration: none; 
+	opacity: 0.8;
+	transition: opacity 0.3s ease-out;
+}
+
+.footer {
+	text-align: center;
+	margin: 40px auto;
+	font-size: 12pt;
+}
+
+.footer a {
+	color:#0076df;
+	text-decoration: none;
+	border-bottom: 1px solid #46bafc;
+}
+
+.footer a:hover {
+	color: #FFA500;
+	border-bottom: 1px solid #FFA500;
+	transition: all 0.15s ease;
+}
+
+.footer a:visited {
+	color: #8A2BE2;
+	border-bottom: 1px solid #8A2BE2;
+}
+
+.footer a:visited:hover {
+	color: #FFA500;
+	border-bottom: 1px solid #FFA500;
+	transition: all 0.15s ease;
+}
+
+.background-setup {
+	width: 48px;
+	height: 48px;
+	box-sizing: border-box;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	background-color: #65c178;
+	margin-top: 350px;
+	position: fixed;
+	background-image: url("../img/bulb.svg");
+	background-repeat: no-repeat;
+	background-position: 7px 9px;
+}
+
+.background-setup:hover {
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.menu-setup {
+	width: 48px;
+	height: 48px;
+	box-sizing: border-box;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	background-color: #2d72d9;
+	margin-top: 410px;
+	position: fixed;
+	background-image: url("../img/nav-burger.svg");
+	background-repeat: no-repeat;
+	background-position: 4px 5px;
+	background-size: 80%;
+}
+
+.menu-setup:hover {
+	opacity: 0.9;
+	cursor: pointer;
+}

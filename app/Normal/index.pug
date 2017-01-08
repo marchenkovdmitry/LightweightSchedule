@@ -1,0 +1,408 @@
+doctype html
+html(manifest="cache.manifest" lang="ru")
+head
+  meta(charset="UTF-8")
+  title Расписание на 5 семестр. ЭС-14.
+  meta(name="Keywords" content="Расписание,ЭС-14, 14, ЭС, СФМЭИ")
+  meta(name="Description" content="Расписание предметов группы ЭС-14")
+  link(rel="stylesheet" href="css/styles.css" type="text/css")
+  meta(name="viewport" content="width=device-width")
+  link(rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png?v=ngGk9Mrv2R")
+  link(rel="icon" type="image/png" href="img/favicons/favicon-32x32.png?v=ngGk9Mrv2R" sizes="32x32")
+  link(rel="icon" type="image/png" href="img/favicons/favicon-16x16.png?v=ngGk9Mrv2R" sizes="16x16")
+  link(rel="manifest" href="img/favicons/manifest.json?v=ngGk9Mrv2R")
+  link(rel="mask-icon" href="img/favicons/safari-pinned-tab.svg?v=ngGk9Mrv2R" color="#5bbad5")
+  link(rel="shortcut icon" href="img/favicons/favicon.ico?v=ngGk9Mrv2R")
+  meta(name="msapplication-config" content="img/favicons/browserconfig.xml?v=ngGk9Mrv2R")
+  meta(name="theme-color" content="#ffffff")
+
+- 
+  // Educators name`s
+  var mod = {
+  	edu: "Петров Виктор Степанович",
+  	eduMin: "Петров В.С."
+  };
+
+  var mash = {
+  	edu: "Баловнев Денис Иванович",
+  	eduMin: "Баловнев Д.И."
+  };
+
+  var toe = {
+  	edu: "Петров Виктор Семенович",
+  	eduMin: "Петров В.С.",
+  	edu2: "Мищенко Михаил Николаевич",
+  	eduMin2: "Мищенко М.Н."
+  };
+
+  var ele = {
+  	edu: "Крупенькин Валентин Сергеевич",
+  	eduMin: "Крупенькин В.С.",
+  	edu2: "Пеньков Андрей Анатольевич",
+  	eduMin2: "Пеньков А.А." 
+  };
+
+  var pmz = {
+  	edu: "Вайтеленок Лариса Витальевна",
+  	eduMin: "Вайтеленок Л.В.",
+  	edu2: "Митрофанов Игорь Евгеньевич",
+  	eduMin2: "Митрофанов  И.Е."
+  };
+
+  var bzd = {
+  	edu: "Белалов Владислав Равильевич",
+  	eduMin: "Белалов В.Р."
+  };
+
+  // Time 
+
+  var time = {
+    first: "8:30 - 10:00",
+    second: "10:15 - 11:45",
+    third: "12:00 - 13:30",
+    fourth: "14:00 - 15:30"
+  };
+
+
+
+body
+
+  ul.menu
+    li
+      a(class='menu-link' href='#monday') Понедельник
+    li
+      a(class='menu-link' href='#tuesday') Вторник
+    li
+      a(class='menu-link' href='#wednesday') Среда
+    li
+      a(class='menu-link' href='#thursday') Четверг
+    li
+      a(class='menu-link' href='#friday') Пятница
+
+  .btn-container
+    .li-setup
+    .background-setup
+    .day-setup
+  .menu-setup
+  
+  .wrapper-main
+  
+    .main_title#monday Понедельник
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline У. Моделирование в электроэнергетике.
+        .auditory A102
+        .educator.tooltip(data-title= mod.edu)
+          span #{mod.eduMin}
+        
+   
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline У. Электрические машины.
+        .auditory A102
+        .educator.tooltip(data-title= mash.edu)
+          span #{mash.eduMin}
+   
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline ЛК. Электрические машины.
+        .auditory A4
+        .educator.tooltip(data-title= mash.edu)
+          span #{mash.eduMin}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline ЛК. Теоретические основы электротехники (ТОЭ)
+        .auditory A1
+        .educator.tooltip(data-title= toe.edu)
+          span #{toe.eduMin}
+   
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline ЛБ. Электроника. 1 пгр.
+        .auditory А300 Б314
+        .educator.tooltip(data-title= ele.edu)
+          span #{ele.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline ЛБ. Электроника. 2 пгр.
+        .auditory А300 Б314
+        .educator.tooltip(data-title= ele.edu)
+          span #{ele.eduMin}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline ЛБ. Электроника. 1 пгр.
+        .auditory А206
+        .educator.tooltip(data-title= ele.edu)
+          span #{ele.eduMin}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline ЛБ. Электроника. 1 пгр.
+        .auditory А206
+        .educator.tooltip(data-title= ele.edu)
+          span #{ele.eduMi}  
+  
+  
+  
+  
+    .main_title#tuesday Вторник
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline ЛБ. Прикладные математические задачи. 1 пгр.
+        .auditory A206
+        .educator.tooltip(data-title= pmz.edu)
+          span #{pmz.eduMin}
+   
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline ЛБ. Прикладные математические задачи. 1 пгр.
+        .auditory A206
+        .educator.tooltip(data-title= pmz.edu)
+          span #{pmz.eduMin}
+   
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline Элективные курсы по физической культуре.
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline Элективные курсы по физической культуре.
+       
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline ЛК. Безопасность жизнедеятельности (БЖД)
+        .auditory А300 Б314
+        .educator.tooltip(data-title= bzd.edu)
+          span #{bzd.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline ЛК. Безопасность жизнедеятельности (БЖД)
+        .auditory А300 Б314
+        .educator.tooltip(data-title= bzd.edu)
+          span #{bzd.eduMin}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline ЛБ. Прикладные математические задачи. 2пгр.
+        .auditory А206
+        .educator.tooltip(data-title= pmz.edu)
+          span #{pmz.eduMin}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline ЛБ. Прикладные математические задачи. 2пгр.
+        .auditory А206
+        .educator.tooltip(data-title= pmz.edu)
+          span #{pmz.eduMi}  
+  
+  
+  
+  
+    .main_title#wednesday Среда
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline ЛК. Электроника.
+        .auditory А4
+        .educator.tooltip(data-title= ele.edu2)
+          span #{ele.eduMin2}
+   
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline ЛК. Электроника.
+        .auditory А4
+        .educator.tooltip(data-title= ele.edu2)
+          span #{ele.eduMin2}
+   
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline ЛК. Прикладные математические задачи.
+        .auditory 401
+        .educator.tooltip(data-title= pmz.edu2)
+          span #{pmz.eduMin2}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline ЛК. Прикладные математические задачи.
+        .auditory 401
+        .educator.tooltip(data-title= pmz.edu2)
+          span #{pmz.eduMin2}
+       
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline ЛБ. ТОЭ
+        .auditory А310
+        .educator.tooltip(data-title= toe.edu)
+          span #{toe.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline У. Прикладные математические задачи.
+        .auditory 401
+        .educator.tooltip(data-title= pmz.edu2)
+          span #{pmz.eduMin2}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline ЛБ. ТОЭ
+        .auditory А310
+        .educator.tooltip(data-title= toe.edu2)
+          span #{toe.eduMin2}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline Нет пары.
+  
+  
+  
+  
+    .main_title#thursday Четверг
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline Элективные курсы по физической культуре.
+        
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline ЛБ. Элективные курсы по физической культуре.
+       
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline У. БЖД
+        .auditory А102
+        .educator.tooltip(data-title= bzd.edu)
+          span #{bzd.eduMin}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline У. ТОЭ
+        .auditory А102
+        .educator.tooltip(data-title= toe.edu)
+          span #{toe.eduMin}
+   
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline ЛК. Моделирование в электроэнергетике.
+        .auditory 425
+        .educator.tooltip(data-title= mod.edu)
+          span #{mod.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline У. Моделирование в электроэнергетике.
+        .auditory A102
+        .educator.tooltip(data-title= mod.edu)
+          span #{mod.eduMin}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline Нет пары.
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline Нет пары.
+      
+  
+ 
+
+    .main_title#friday Пятница
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline ЛБ. ЭМ 1 и 2 пары (1 пгр. 3,7,11,15 н.)
+        .auditory В01 В110
+        .educator.tooltip(data-title= mash.edu)
+           span #{mash.eduMin}
+        
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline ЛБ. ЭМ 1 и 2 пары (2 пгр. 4,8,12,16 н.)
+        .auditory 505
+        .educator.tooltip(data-title= mash.edu)
+           span #{mash.eduMin}
+       
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline ЛБ. БЖД 1 и 2 пары (1 пгр. 1,5,9,13,17 н.)
+        .auditory А202
+        .educator.tooltip(data-title= bzd.edu)
+           span #{bzd.eduMin}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline ЛБ. БЖД 1 и 2 пары (2пгр. 2,6,10,14 н.)
+        .auditory А202
+        .educator.tooltip(data-title= bzd.edu)
+           span #{bzd.eduMin}
+   
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline Нет пары.
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline Нет па  
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline Нет пары.
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline Нет пары.
+  
+
+    a(class='bottom_link_top' href='#top') Вверх
+    .footer
+     p Сделано в 2016 году.
+     a(href='mailto:marchenkovdmitry@gmail.com') marchenkovdmitry@gmail.com
+
+    script(src="js/main.js")
+
+
+
