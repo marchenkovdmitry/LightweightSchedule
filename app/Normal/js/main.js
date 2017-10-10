@@ -9,11 +9,8 @@ var body = document.querySelector("body"),
     menuSetup = document.querySelector(".menu-setup");
 
     function EvenOrOdd() {
-      //returns false if the week even, or true if the week odd
 
-      // Warning!!! False/true reversed for spbmpei schedule. !!!
-
-      if (new Date().getWeek() % 2 === 0) {
+      if (new Date().getWeek() % 2 !== 0) {
         return true;
       } else {
         return false;
@@ -30,8 +27,8 @@ var body = document.querySelector("body"),
     function setElemColor(element,color) {
       var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
           evenElements = document.querySelectorAll('.day_week li:nth-child(even)'),
-          allTimeLightColor = document.querySelectorAll('ul.day_week:nth-child(4)>li:nth-child(n+5):nth-child(-n+6),ul.day_week:nth-child(6)>li:nth-child(n+3):nth-child(-n+4),ul.day_week:nth-child(8)>li:nth-child(n+3):nth-child(-n+4)');
-          // Warning!!! Backlight hack (Only for 6 semester) !!!
+          allTimeLightColor = document.querySelectorAll('ul.day_week:nth-child(6)>li:nth-child(n+7):nth-child(-n+8),ul.day_week:nth-child(8)>li:nth-child(n+3):nth-child(-n+4)');
+          // Warning!!! Backlight hack (Only for 7 semester) !!!
           //!!!
 
 

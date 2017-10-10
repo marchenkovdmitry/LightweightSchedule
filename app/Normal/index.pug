@@ -2,66 +2,68 @@ doctype html
 html(manifest="cache.manifest" lang="ru")
 head
   meta(charset="UTF-8")
-  title Расписание на 6 семестр. ЭС-14.
+  title Расписание на 7 семестр. ЭС-14.
   meta(name="Keywords" content="Расписание,ЭС-14, 14, ЭС, СФМЭИ")
   meta(name="Description" content="Расписание предметов группы ЭС-14")
   link(rel="stylesheet" href="css/styles.css")
   meta(name="viewport" content="width=device-width")
-  link(rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png?v=ngGk9Mrv2R")
-  link(rel="icon" type="image/png" href="img/favicons/favicon-32x32.png?v=ngGk9Mrv2R" sizes="32x32")
-  link(rel="icon" type="image/png" href="img/favicons/favicon-16x16.png?v=ngGk9Mrv2R" sizes="16x16")
-  link(rel="manifest" href="img/favicons/manifest.json?v=ngGk9Mrv2R")
-  link(rel="mask-icon" href="img/favicons/safari-pinned-tab.svg?v=ngGk9Mrv2R" color="#5bbad5")
-  link(rel="shortcut icon" href="img/favicons/favicon.ico?v=ngGk9Mrv2R")
-  meta(name="msapplication-config" content="img/favicons/browserconfig.xml?v=ngGk9Mrv2R")
-  meta(name="theme-color" content="#ffffff")
+  link(rel="apple-touch-icon", sizes="180x180", href="img/favicons/apple-touch-icon.png?v=5AeBvYvNlM")
+  link(rel="icon", type="image/png", sizes="32x32", href="img/favicons/favicon-32x32.png?v=5AeBvYvNlM")
+  link(rel="icon", type="image/png", sizes="16x16", href="img/favicons/favicon-16x16.png?v=5AeBvYvNlM")
+  link(rel="manifest", href="img/favicons/manifest.json?v=5AeBvYvNlM")
+  link(rel="mask-icon", href="img/favicons/safari-pinned-tab.svg?v=5AeBvYvNlM", color="#5bbad5")
+  link(rel="shortcut icon", href="img/favicons/favicon.ico?v=5AeBvYvNlM")
+  meta(name="msapplication-TileColor", content="#2b5797")
+  meta(name="msapplication-TileImage", content="img/favicons/mstile-144x144.png?v=5AeBvYvNlM")
+  meta(name="msapplication-config", content="img/favicons/browserconfig.xml?v=5AeBvYvNlM")
+  meta(name="theme-color", content="#ffffff")
 
 -
   // Educators name`s
-  var pravo = {
-    edu: "Слепченкова Светлана Викторовна",
-    eduMin: "Слепченкова С.В."
+  var elapp = {
+    title: "Электрические аппараты",
+    edu: "Киселев Виктор Федорович",
+    eduMin: "Киселев В.Ф."
   };
 
-  var esip = {
-    edu: "Шунаев Сергей Анатольевич",
-    eduMin: "Шунаев С.А.",
-    edu2: "Марков Владимир Сергеевич",
-    eduMin2: "Марков В.С."
-  };
-
-  var emp = { 
-    edu: "Кавченков Валерий Петрович",
-    eduMin: "Кавченков В.П.",
-    edu2: "Андреенков Евгений Сергеевич",
-    eduMin2: "Андреенков Е.С.",
-    edu3: "Каминский Александр Владимирович",
-    eduMin3: "Каминский А.В."
-  };
-
-  var em = {
-    edu: "Божин Юрий Михайлович",
-    eduMin: "Божин Ю.М.",
-    edu2: "Кулик Юрий Дмитриевич",
-    eduMin2: "Кулик Ю.Д.",
-    edu3: "Самоченков Александр Игоревич",
-    eduMin3: "Самоченков А.И."
-  };
-
-  var es = {
-    edu: "Петров Виктор Степанович",
-    eduMin: "Петров В.С.",
+  var eltec = {
+    title: "Электрическая часть ТЭЦ и подстанций СЭС",
+    edu: "Сидоров Анатолий Григорьевич",
+    eduMin: "Сидоров А.Г.",
     edu2: "Долецкая Лариса Ивановна",
     eduMin2: "Долецкая Л.И."
   };
 
-  var ee = {
-    edu: "Соколов Р.В.",
-    eduMin: "Соколов Р.В.",
-    edu2: "Рябова Диана Олеговна",
-    eduMin2: "Рябова Д.О.",
-    edu3: "Солопов Роман Вячеславович",
-    eduMin3: "Солопов Р.В."
+  var emp = { 
+    title: "Электромеханические процессы в электроэнергетических системах",
+    edu: "Каминский Александр Владимирович",
+    eduMin: "Каминский А.В.",
+    edu2: "Якушевская Анна Константиновна",
+    eduMin2: "Якушевская А.К."
+  };
+
+  var economic = {
+    title: "Экономика",
+    edu: "Белалова Ирина Александровна",
+    eduMin: "Белалова И.А."
+  };
+
+  var relavt = {
+    title: "Релейная защита и автоматизация ЭЭС",
+    edu: "Ковженкин Виктор Сергеевич",
+    eduMin: "Ковженкин В.С.",
+    edu2: "Певцова Людмила Сергеевна",
+    eduMin2: "Певцова Л.С."
+  };
+
+  var energsis = {
+    title: "Электроэнергетические системы и сети",
+    edu: "Певцова Людмила Сергеевна",
+    eduMin: "Певцова Л.С."
+  };
+
+  var empty = {
+    title: "Нет пары."
   };
 
   // Time 
@@ -101,51 +103,54 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline Нет пары.
+        .discipline #{empty.title}
         
       li
         .num 1.З
         .time #{time.first}
-        .discipline Нет пары.
+        .discipline #{empty.title}
    
       li
         .num 2.Ч
         .time #{time.second}
-        .discipline Нет пары.
+        .discipline У. #{elapp.title}
+        .auditory А112
+        .educator.tooltip(data-title= elapp.edu)
+          span #{elapp.eduMin}
    
       li
         .num 2.З
         .time #{time.second}
-        .discipline У. Правоведение.
-        .auditory 211
-        .educator.tooltip(data-title= pravo.edu)
-          span #{pravo.eduMin}
+        .discipline КП. #{eltec.title}
+        .auditory А112
+        .educator.tooltip(data-title= eltec.edu)
+          span #{eltec.eduMin}
    
       li
         .num 3.Ч
         .time #{time.third}
-        .discipline ЛК. Электромагнитные переходные процессы в электроэнергетических системах.
-        .auditory А4
+        .discipline ЛК. #{emp.title}
+        .auditory 402
         .educator.tooltip(data-title= emp.edu)
           span #{emp.eduMin}
    
       li
         .num 3.З
         .time #{time.third}
-        .discipline ЛК. Электромагнитные переходные процессы в электроэнергетических системах.
-        .auditory А4
-        .educator.tooltip(data-title= emp.edu)
-          span #{emp.eduMin}
+        .discipline ЛК. #{elapp.title}
+        .auditory А112
+        .educator.tooltip(data-title= elapp.edu)
+          span #{elapp.eduMin}
    
       li
         .num 4.Ч
         .time #{time.fourth}
-        .discipline Нет пары.
+        .discipline #{empty.title}
    
       li
         .num 4.З
         .time #{time.fourth}
-        .discipline Нет пары.
+        .discipline #{empty.title}
   
   
   
@@ -155,66 +160,58 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline ЛК. Электроснабжение.
-        .auditory 425
-        .educator.tooltip(data-title= es.edu2)
-          span #{es.eduMin2}
+        .discipline ЛК. #{economic.title}
+        .auditory 401
+        .educator.tooltip(data-title= economic.edu)
+          span #{economic.eduMin}
    
       li
         .num 1.З
         .time #{time.first}
-        .discipline ЛК. Электроснабжение. 
-        .auditory 425
-        .educator.tooltip(data-title= es.edu2)
-          span #{es.eduMin2}
+        .discipline #{empty.title}
    
       li
         .num 2.Ч
         .time #{time.second}
-        .discipline ЛК. Электрические машины. 
-        .auditory 425
-        .educator.tooltip(data-title= em.edu)
-          span #{em.eduMin}
+        .discipline ЛК. #{eltec.title}
+        .auditory А112
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
    
       li
         .num 2.З
         .time #{time.second}
-        .discipline ЛК. Электрические машины. 
-        .auditory 425
-        .educator.tooltip(data-title= em.edu)
-          span #{em.eduMin}
+        .discipline ЛК. #{eltec.title}
+        .auditory А112
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
        
       li
-        .num 3
+        .num 3.Ч
         .time #{time.third}
-        .discipline ЛБ. Электрические станции и подстанции. 1 пгр.
-        .auditory А122
-        .educator.tooltip(data-title= esip.edu)
-          span #{esip.eduMin}
+        .discipline ЛБ. #{relavt.title}
+        .auditory А119
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
+          
    
       li
-        .num 3
+        .num 3.З
         .time #{time.third}
-        .discipline ЛБ. Электромагнитные переходные процессы в электроэнергетических системах. 2 пгр.
-        .auditory А317
-        .educator.tooltip(data-title= emp.edu2)
-          span #{emp.eduMin2}
+        .discipline У. #{emp.title}
+        .auditory 402
+        .educator.tooltip(data-title= emp.edu)
+          span #{emp.eduMin}
    
       li
         .num 4.Ч
         .time #{time.fourth}
-        .discipline У. Электромагнитные переходные процессы в электроэнергетических системах.
-        .auditory 405
-        .educator.tooltip(data-title= emp.edu3)
-          span #{emp.eduMin3}
+        .discipline #{empty.title}
    
       li
         .num 4.З
         .time #{time.fourth}
-        .discipline У. Электромагнитные переходные процессы в электроэнергетических системах.
-        .auditory 405
-        .educator.tooltip(data-title= emp.edu3)
-          span #{emp.eduMin3}
+        .discipline #{empty.title}
   
   
   
@@ -224,60 +221,60 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline У. Электрические станции и подстанции.
-        .auditory A122
-        .educator.tooltip(data-title= esip.edu)
-          span #{esip.eduMin}
+        .discipline #{empty.title}
    
       li
         .num 1.З
         .time #{time.first}
-        .discipline Нет пары.
+        .discipline #{empty.title}
    
       li
-        .num 2
+        .num 2.Ч
         .time #{time.second}
-        .discipline ЛБ. Электроснабжение. 1 пгр.
-        .auditory А208
-        .educator.tooltip(data-title= es.edu)
-          span #{es.eduMin}
+        .discipline ЛК. #{energsis.title} 
+        .auditory 425
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
    
       li
-        .num 2
+        .num 2.З
         .time #{time.second}
-        .discipline ЛБ. Электрические станции и подстанции. 2 пгр.
-        .auditory А122
-        .educator.tooltip(data-title= esip.edu)
-          span #{esip.eduMin}
+        .discipline ЛК. #{energsis.title} 
+        .auditory 425
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
        
       li
         .num 3.Ч
         .time #{time.third}
-        .discipline ЛК. Электрические станции и подстанции.
-        .auditory А4
-        .educator.tooltip(data-title= esip.edu2)
-          span #{esip.eduMin2}
+        .discipline У. #{eltec.title}
+        .auditory А122
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
    
       li
         .num 3.З
         .time #{time.third}
-        .discipline ЛК. Экономика энергетики.
-        .auditory 425
-        .educator.tooltip(data-title= ee.edu3)
-          span #{ee.eduMin3}
+        .discipline У. #{eltec.title}
+        .auditory А122
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
    
       li
         .num 4.Ч
         .time #{time.fourth}
-        .discipline КП. Электрические машины. 
-        .auditory В114
-        .educator.tooltip(data-title= em.edu2)
-          span #{em.eduMin2}
+        .discipline ЛБ. #{emp.title} 1 пгр.
+        .auditory А206
+        .educator.tooltip(data-title= emp.edu2)
+          span #{emp.eduMin2}
    
       li
         .num 4.З
         .time #{time.fourth}
-        .discipline Нет пары.
+        .discipline ЛБ. #{energsis.title} 2 пгр.
+        .auditory А120
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
   
   
   
@@ -287,63 +284,54 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline ЛК. Правоведение.
-        .auditory А4
-        .educator.tooltip(data-title= pravo.edu)
-          span #{pravo.eduMin}
+        .discipline #{empty.title}
         
       li
         .num 1.З
         .time #{time.first}
-        .discipline Нет пары.
+        .discipline #{empty.title}
        
       li
-        .num 2
+        .num 2.Ч
         .time #{time.second}
-        .discipline ЛБ. Электромагнитные переходные процессы в электроэнергетических системах. 1 пгр.
-        .auditory А317
+        .discipline ЛБ. #{emp.title} 2 пгр.
+        .auditory А206
         .educator.tooltip(data-title= emp.edu2)
           span #{emp.eduMin2}
    
       li
-        .num 2
+        .num 2.З
         .time #{time.second}
-        .discipline ЛБ. Электроснабжение. 2 пгр.
-        .auditory А208
-        .educator.tooltip(data-title= es.edu)
-          span #{es.eduMin}
+        .discipline ЛБ. #{energsis.title} 1 пгр.
+        .auditory А120
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
    
       li
         .num 3.Ч
         .time #{time.third}
-        .discipline ЛБ. Электрические машины. 1 пгр.
-        .auditory В01 В02
-        .educator.tooltip(data-title= em.edu3)
-          span #{em.eduMin3}
+        .discipline У. #{economic.title}
+        .auditory 208
+        .educator.tooltip(data-title= economic.edu)
+          span #{economic.eduMin}
    
       li
         .num 3.З
         .time #{time.third}
-        .discipline ЛБ. Электрические машины. 2 пгр.
-        .auditory В01 В02
-        .educator.tooltip(data-title= em.edu3)
-          span #{em.eduMin3}
+        .discipline У. #{economic.title}
+        .auditory 208
+        .educator.tooltip(data-title= economic.edu)
+          span #{economic.eduMin}
    
       li
         .num 4.Ч
         .time #{time.fourth}
-        .discipline ЛБ. Электрические машины. 1 пгр.
-        .auditory В01 В02
-        .educator.tooltip(data-title= em.edu3)
-          span #{em.eduMin3}
+        .discipline #{empty.title}
    
       li
         .num 4.З
         .time #{time.fourth}
-        .discipline ЛБ. Электрические машины. 2 пгр.
-        .auditory В01 В02
-        .educator.tooltip(data-title= em.edu3)
-          span #{em.eduMin3}
+        .discipline #{empty.title}
       
   
  
@@ -353,54 +341,57 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline Нет пары.
+        .discipline ЛК. #{relavt.title}
+        .auditory 524
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
         
       li
         .num 1.З
         .time #{time.first}
-        .discipline Нет пары.
+        .discipline ЛК. #{relavt.title}
+        .auditory 524
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
        
       li
         .num 2.Ч
         .time #{time.second}
-        .discipline У. Экономика энергетики.
-        .auditory 404
-        .educator.tooltip(data-title= ee.edu2)
-           span #{ee.eduMin2}
+        .discipline У. #{energsis.title}
+        .auditory А102
+        .educator.tooltip(data-title= energsis.edu)
+           span #{energsis.eduMin}
    
       li
         .num 2.З
         .time #{time.second}
-        .discipline У. Экономика энергетики.
-        .auditory 404
-        .educator.tooltip(data-title= ee.edu2)
-           span #{ee.eduMin2}
+        .discipline У. #{relavt.title}
+        .auditory А112
+        .educator.tooltip(data-title= relavt.edu)
+           span #{relavt.eduMin}
    
       li
         .num 3.Ч
         .time #{time.third}
-        .discipline КР. Электромагнитные переходные процессы в электроэнергетических системах.
-        .auditory 425
-        .educator.tooltip(data-title= emp.edu3)
-           span #{emp.eduMin3}
+        .discipline КР. #{relavt.title}
+        .auditory А102
+        .educator.tooltip(data-title= relavt.edu)
+           span #{relavt.eduMin}
    
       li
         .num 3.З
         .time #{time.third}
-        .discipline У. Электроснабжение.
-        .auditory А122
-        .educator.tooltip(data-title= es.edu2)
-           span #{es.eduMin2} 
+        .discipline #{empty.title}
 
       li
         .num 4.Ч
         .time #{time.fourth}
-        .discipline Нет пары.
+        .discipline #{empty.title}
    
       li
         .num 4.З
         .time #{time.fourth}
-        .discipline Нет пары.
+        .discipline #{empty.title}
   
 
     a(class='bottom_link_top' href='#top') Вверх
