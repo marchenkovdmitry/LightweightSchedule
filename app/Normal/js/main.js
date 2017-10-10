@@ -8,8 +8,19 @@ var body = document.querySelector("body"),
     daySetup = document.querySelector(".day-setup"),
     menuSetup = document.querySelector(".menu-setup");
 
-    function EvenOrOdd() {
+    function hideElem(elem) {
+      elem.style.display = 'none';
+    }
 
+    function setItem (item,key) {
+      localStorage.setItem(item,key);
+    }
+
+    function getItem (item) {
+      return localStorage.getItem(item);
+    }
+
+    function EvenOrOdd() {
       if (new Date().getWeek() % 2 !== 0) {
         return true;
       } else {
@@ -20,17 +31,19 @@ var body = document.querySelector("body"),
     function darkColor (elem) {
       elem.style.background = "#61697c";
     }
+
     function lightColor (elem) {
       elem.style.background = "#4f5a6e";
     }
 
     function setElemColor(element,color) {
       var oddElements = document.querySelectorAll('.day_week li:nth-child(odd)'),
-          evenElements = document.querySelectorAll('.day_week li:nth-child(even)'),
-          allTimeLightColor = document.querySelectorAll('ul.day_week:nth-child(6)>li:nth-child(n+7):nth-child(-n+8),ul.day_week:nth-child(8)>li:nth-child(n+3):nth-child(-n+4)');
-          // Warning!!! Backlight hack (Only for 7 semester) !!!
-          //!!!
+          evenElements = document.querySelectorAll('.day_week li:nth-child(even)');
 
+      var allTimeLightColor = document.querySelectorAll('ul.day_week:nth-child(6)>li:nth-child(n+7):nth-child(-n+8),ul.day_week:nth-child(8)>li:nth-child(n+3):nth-child(-n+4)');
+        /*
+          Warning!!! Backlight hack (Only for 7 semester) !!!
+        */
 
       if (element === "oddElements" && color === "lightColor") {
         [].forEach.call(oddElements,lightColor);
@@ -53,14 +66,6 @@ var body = document.querySelector("body"),
       }
     }
 
-    function setLocalItem (item,type) {
-      localStorage.setItem(item,type);
-    }
-
-    function getLocalItem (item) {
-      return localStorage.getItem(item);
-    }
-
     function menuStyle (key) {
       var menu = document.querySelector(".menu");
       switch (key) {
@@ -75,7 +80,7 @@ var body = document.querySelector("body"),
     }
 
     function setBackground (key) {
-          var footer = document.querySelector(".footer");
+      var footer = document.querySelector(".footer");
       switch (key) {
         case "light":
           body.style.backgroundImage = "url(img/diagonal_striped_brick.png)";
@@ -104,10 +109,13 @@ var body = document.querySelector("body"),
 
     function setDayUrlHash(key) {
       var currentDay = new Date().getDay();
-      if (currentDay === 6 || currentDay === 0) {daySetup.style.display = "none";}
-      if (key === "disable") {location.hash = "";}
-       else {
-          switch (currentDay) {
+      if (currentDay === 6 || currentDay === 0) {
+        daySetup.style.display = "none";
+      }
+      if (key === "disable") {
+        location.hash = "";
+      } else {
+        switch (currentDay) {
           case 1:
             location.hash = "monday";
             break;
@@ -132,22 +140,22 @@ var body = document.querySelector("body"),
     function manualSetDayUrlHash(event) {
       var presskey = DetectPressKey(event);
       switch (presskey) {
-      case "1":
-        location.hash = "monday";
-        break;
-      case "2":
-        location.hash = "tuesday";
-        break;
-      case "3":
-        location.hash = "wednesday";
-        break;
-      case "4":
-        location.hash = "thursday";
-        break;
-      case "5":
-        location.hash = "friday";
-        break;
-      default:
+        case "1":
+          location.hash = "monday";
+          break;
+        case "2":
+          location.hash = "tuesday";
+          break;
+        case "3":
+          location.hash = "wednesday";
+          break;
+        case "4":
+          location.hash = "thursday";
+          break;
+        case "5":
+          location.hash = "friday";
+          break;
+        default:
       }
     }
 
@@ -164,7 +172,7 @@ var body = document.querySelector("body"),
     };
 
     function styleSetup(obj) {
-       switch (getLocalItem (obj.localItem)) {
+       switch (getItem (obj.localItem)) {
        case "type1":
          obj.funcName(obj.funcNameArg1,obj.funcNameArg2);
          break;
@@ -177,24 +185,23 @@ var body = document.querySelector("body"),
     }
 
     function manualStyleSetup(obj) {
-       switch (getLocalItem (obj.localItem)) {
+       switch (getItem (obj.localItem)) {
        case "type1":
-         setLocalItem (obj.setLocalItemArg1, obj.setLocalItemArg2);
+         setItem (obj.setItemArg1, obj.setItemArg2);
          obj.funcName(obj.funcNameArg1, obj.funcNameArg2);
          break;
        case "type2":
-         setLocalItem (obj.setLocalItemArg3, obj.setLocalItemArg4);
+         setItem (obj.setItemArg3, obj.setItemArg4);
          obj.funcName(obj.funcNameArg3, obj.funcNameArg4);
          break;
        default:
-         setLocalItem (obj.setLocalItemArg5, obj.setLocalItemArg6);
+         setItem (obj.setItemArg5, obj.setItemArg6);
          obj.funcName(obj.funcNameArg5, obj.funcNameArg6);
        }
     }
 
 
 //Local storage support
-
 
 function storageAvailable(type) {
   try {
@@ -227,12 +234,12 @@ if (storageAvailable('localStorage')) {
     liSetup.addEventListener( "click" , function() {manualStyleSetup({
        localItem: "colorStyle",
        funcName: setElemColor,
-       setLocalItemArg1: "colorStyle",
-       setLocalItemArg2: "type2",
-       setLocalItemArg3: "colorStyle",
-       setLocalItemArg4: "type1",
-       setLocalItemArg5: "colorStyle",
-       setLocalItemArg6: "type1",
+       setItemArg1: "colorStyle",
+       setItemArg2: "type2",
+       setItemArg3: "colorStyle",
+       setItemArg4: "type1",
+       setItemArg5: "colorStyle",
+       setItemArg6: "type1",
        funcNameArg1: "oddElements",
        funcNameArg2: "darkColor",
        funcNameArg3: "oddElements",
@@ -257,12 +264,12 @@ if (storageAvailable('localStorage')) {
     liSetup.addEventListener( "click" , function() {manualStyleSetup({
        localItem: "colorStyle",
        funcName: setElemColor,
-       setLocalItemArg1: "colorStyle",
-       setLocalItemArg2: "type2",
-       setLocalItemArg3: "colorStyle",
-       setLocalItemArg4: "type1",
-       setLocalItemArg5: "colorStyle",
-       setLocalItemArg6: "type1",
+       setItemArg1: "colorStyle",
+       setItemArg2: "type2",
+       setItemArg3: "colorStyle",
+       setItemArg4: "type1",
+       setItemArg5: "colorStyle",
+       setItemArg6: "type1",
        funcNameArg1: "evenElements",
        funcNameArg2: "darkColor",
        funcNameArg3: "evenElements",
@@ -276,7 +283,6 @@ if (storageAvailable('localStorage')) {
 
 //menuSetup
 
-
 styleSetup({
   localItem: "menuStyle",
   funcName: menuStyle,
@@ -289,12 +295,12 @@ menuSetup.addEventListener( "click" , function() {
 manualStyleSetup({
   localItem: "menuStyle",
   funcName: menuStyle,
-  setLocalItemArg1: "menuStyle",
-  setLocalItemArg2: "type2",
-  setLocalItemArg3: "menuStyle",
-  setLocalItemArg4: "type1",
-  setLocalItemArg5: "menuStyle",
-  setLocalItemArg6: "type2",
+  setItemArg1: "menuStyle",
+  setItemArg2: "type2",
+  setItemArg3: "menuStyle",
+  setItemArg4: "type1",
+  setItemArg5: "menuStyle",
+  setItemArg6: "type2",
   funcNameArg1: "none",
   funcNameArg3: "block",
   funcNameArg5: "none"
@@ -314,12 +320,12 @@ backgroundSetup.addEventListener( "click" , function() {
 manualStyleSetup({
   localItem: "backgroundStyle",
   funcName: setBackground,
-  setLocalItemArg1: "backgroundStyle",
-  setLocalItemArg2: "type2",
-  setLocalItemArg3: "backgroundStyle",
-  setLocalItemArg4: "type1",
-  setLocalItemArg5: "backgroundStyle",
-  setLocalItemArg6: "type2",
+  setItemArg1: "backgroundStyle",
+  setItemArg2: "type2",
+  setItemArg3: "backgroundStyle",
+  setItemArg4: "type1",
+  setItemArg5: "backgroundStyle",
+  setItemArg6: "type2",
   funcNameArg1: "dark",
   funcNameArg3: "light",
   funcNameArg5: "dark"
@@ -338,27 +344,29 @@ daySetup.addEventListener( "click" , function() {
 manualStyleSetup({
   localItem: "dayWeek",
   funcName: setDayUrlHash,
-  setLocalItemArg1: "dayWeek",
-  setLocalItemArg2: "type2",
-  setLocalItemArg3: "dayWeek",
-  setLocalItemArg4: "type1",
-  setLocalItemArg5: "dayWeek",
-  setLocalItemArg6: "type2",
+  setItemArg1: "dayWeek",
+  setItemArg2: "type2",
+  setItemArg3: "dayWeek",
+  setItemArg4: "type1",
+  setItemArg5: "dayWeek",
+  setItemArg6: "type2",
   funcNameArg1: "disable"
   }); });
 
 // keyboardNavigation
 
-body.addEventListener( "keypress" , manualSetDayUrlHash);
+body.addEventListener("keypress" , manualSetDayUrlHash);
 
 }
 else {
-  console.log("Sorry. We can't use localStorage awesomeness :(");
+  console.info("Sorry. We can't use localStorage advantages.");
+  [].forEach.call([liSetup,backgroundSetup,daySetup,menuSetup], hideElem);
+  setBackground('light');
 }
 
 return {
-  "setLocalItem": setLocalItem,
-  "getLocalItem": getLocalItem
+  "setItem": setItem,
+  "getItem": getItem
 }
 
 })();
