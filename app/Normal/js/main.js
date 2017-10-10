@@ -195,6 +195,7 @@ var body = document.querySelector("body"),
        }
     }
 
+
 //Local storage support
 
 
@@ -364,6 +365,9 @@ return {
 }
 
 })();
+
+
+
 
 
 
