@@ -1,0 +1,402 @@
+doctype html
+html(manifest="cache.manifest" lang="ru")
+head
+  meta(charset="UTF-8")
+  title Расписание на 7 семестр. ЭС-14.
+  meta(name="Keywords" content="Расписание,ЭС-14, 14, ЭС, СФМЭИ")
+  meta(name="Description" content="Расписание предметов группы ЭС-14")
+  link(rel="stylesheet" href="css/styles.css")
+  meta(name="viewport" content="width=device-width")
+  link(rel="apple-touch-icon", sizes="180x180", href="img/favicons/apple-touch-icon.png?v=5AeBvYvNlM")
+  link(rel="icon", type="image/png", sizes="32x32", href="img/favicons/favicon-32x32.png?v=5AeBvYvNlM")
+  link(rel="icon", type="image/png", sizes="16x16", href="img/favicons/favicon-16x16.png?v=5AeBvYvNlM")
+  link(rel="manifest", href="img/favicons/manifest.json?v=5AeBvYvNlM")
+  link(rel="mask-icon", href="img/favicons/safari-pinned-tab.svg?v=5AeBvYvNlM", color="#5bbad5")
+  link(rel="shortcut icon", href="img/favicons/favicon.ico?v=5AeBvYvNlM")
+  meta(name="msapplication-TileColor", content="#2b5797")
+  meta(name="msapplication-TileImage", content="img/favicons/mstile-144x144.png?v=5AeBvYvNlM")
+  meta(name="msapplication-config", content="img/favicons/browserconfig.xml?v=5AeBvYvNlM")
+  meta(name="theme-color", content="#ffffff")
+
+-
+  // Educators name`s
+  var elapp = {
+    title: "Электрические аппараты",
+    edu: "Киселев Виктор Федорович",
+    eduMin: "Киселев В.Ф."
+  };
+
+  var eltec = {
+    title: "Электрическая часть ТЭЦ и подстанций СЭС",
+    edu: "Сидоров Анатолий Григорьевич",
+    eduMin: "Сидоров А.Г.",
+    edu2: "Долецкая Лариса Ивановна",
+    eduMin2: "Долецкая Л.И."
+  };
+
+  var emp = { 
+    title: "Электромеханические процессы в электроэнергетических системах",
+    edu: "Каминский Александр Владимирович",
+    eduMin: "Каминский А.В.",
+    edu2: "Якушевская Анна Константиновна",
+    eduMin2: "Якушевская А.К."
+  };
+
+  var economic = {
+    title: "Экономика",
+    edu: "Белалова Ирина Александровна",
+    eduMin: "Белалова И.А."
+  };
+
+  var relavt = {
+    title: "Релейная защита и автоматизация ЭЭС",
+    edu: "Ковженкин Виктор Сергеевич",
+    eduMin: "Ковженкин В.С.",
+    edu2: "Певцова Людмила Сергеевна",
+    eduMin2: "Певцова Л.С."
+  };
+
+  var energsis = {
+    title: "Электроэнергетические системы и сети",
+    edu: "Певцова Людмила Сергеевна",
+    eduMin: "Певцова Л.С."
+  };
+
+  var empty = {
+    title: "Нет пары."
+  };
+
+  // Time 
+  var time = {
+    first: "8:30 - 10:00",
+    second: "10:15 - 11:45",
+    third: "12:00 - 13:30",
+    fourth: "14:00 - 15:30"
+  };
+
+
+
+body
+
+  ul.menu
+    li
+      a(class='menu-link' href='#monday') Понедельник
+    li
+      a(class='menu-link' href='#tuesday') Вторник
+    li
+      a(class='menu-link' href='#wednesday') Среда
+    li
+      a(class='menu-link' href='#thursday') Четверг
+    li
+      a(class='menu-link' href='#friday') Пятница
+
+  .btn-container
+    .setup-general.li-setup
+    .setup-general.background-setup
+    .setup-general.day-setup
+  .setup-general.menu-setup
+  
+  .wrapper-main
+  
+    .main_title#monday Понедельник
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline #{empty.title}
+        
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline #{empty.title}
+   
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline У. #{elapp.title}
+        .auditory А112
+        .educator.tooltip(data-title= elapp.edu)
+          span #{elapp.eduMin}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline КП. #{eltec.title}
+        .auditory А112
+        .educator.tooltip(data-title= eltec.edu)
+          span #{eltec.eduMin}
+   
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline ЛК. #{emp.title}
+        .auditory 402
+        .educator.tooltip(data-title= emp.edu)
+          span #{emp.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline ЛК. #{elapp.title}
+        .auditory А112
+        .educator.tooltip(data-title= elapp.edu)
+          span #{elapp.eduMin}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline #{empty.title}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline #{empty.title}
+  
+  
+  
+  
+    .main_title#tuesday Вторник
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline ЛК. #{economic.title}
+        .auditory 401
+        .educator.tooltip(data-title= economic.edu)
+          span #{economic.eduMin}
+   
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline #{empty.title}
+   
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline ЛК. #{eltec.title}
+        .auditory А122
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline ЛК. #{eltec.title}
+        .auditory А122
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
+       
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline ЛБ. #{relavt.title}
+        .auditory А119
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
+          
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline У. #{emp.title}
+        .auditory 402
+        .educator.tooltip(data-title= emp.edu)
+          span #{emp.eduMin}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline #{empty.title}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline #{empty.title}
+  
+  
+  
+  
+    .main_title#wednesday Среда
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline ЛК. #{relavt.title}
+        .auditory 425
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
+        
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline ЛК. #{relavt.title}
+        .auditory 425
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
+
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline ЛК. #{energsis.title} 
+        .auditory 425
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline ЛК. #{energsis.title} 
+        .auditory 425
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
+       
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline У. #{eltec.title}
+        .auditory А122
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline У. #{eltec.title}
+        .auditory А122
+        .educator.tooltip(data-title= eltec.edu2)
+          span #{eltec.eduMin2}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline ЛБ. #{emp.title} 1 пгр.
+        .auditory А206
+        .educator.tooltip(data-title= emp.edu2)
+          span #{emp.eduMin2}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline ЛБ. #{energsis.title} 2 пгр.
+        .auditory А120
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
+  
+  
+  
+  
+    .main_title#thursday Четверг
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline #{empty.title}
+        
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline #{empty.title}
+       
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline ЛБ. #{emp.title} 2 пгр.
+        .auditory А206
+        .educator.tooltip(data-title= emp.edu2)
+          span #{emp.eduMin2}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline ЛБ. #{energsis.title} 1 пгр.
+        .auditory А120
+        .educator.tooltip(data-title= energsis.edu)
+          span #{energsis.eduMin}
+   
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline У. #{economic.title}
+        .auditory 208
+        .educator.tooltip(data-title= economic.edu)
+          span #{economic.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline У. #{economic.title}
+        .auditory 208
+        .educator.tooltip(data-title= economic.edu)
+          span #{economic.eduMin}
+   
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline #{empty.title}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline #{empty.title}
+      
+  
+ 
+
+    .main_title#friday Пятница
+    ul.day_week
+      li
+        .num 1.Ч
+        .time #{time.first}
+        .discipline #{empty.title}
+        
+      li
+        .num 1.З
+        .time #{time.first}
+        .discipline #{empty.title}
+       
+      li
+        .num 2.Ч
+        .time #{time.second}
+        .discipline У. #{energsis.title}
+        .auditory А102
+        .educator.tooltip(data-title= energsis.edu)
+           span #{energsis.eduMin}
+   
+      li
+        .num 2.З
+        .time #{time.second}
+        .discipline У. #{relavt.title}
+        .auditory А112
+        .educator.tooltip(data-title= relavt.edu)
+           span #{relavt.eduMin}
+   
+      li
+        .num 3.Ч
+        .time #{time.third}
+        .discipline КР. #{relavt.title}
+        .auditory А102
+        .educator.tooltip(data-title= relavt.edu)
+           span #{relavt.eduMin}
+   
+      li
+        .num 3.З
+        .time #{time.third}
+        .discipline #{empty.title}
+
+      li
+        .num 4.Ч
+        .time #{time.fourth}
+        .discipline #{empty.title}
+   
+      li
+        .num 4.З
+        .time #{time.fourth}
+        .discipline #{empty.title}
+  
+
+    a(class='bottom_link_top' href='#top') Вверх
+    .footer
+     p Сделано в 2016 году.
+     a(href='mailto:marchenkovdmitry@gmail.com') marchenkovdmitry@gmail.com
+
+    script(src="js/main.js")

@@ -2,13 +2,16 @@ var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     pug = require('gulp-pug'),
     uglify = require('gulp-uglify'),
-    watch = require('gulp-watch');
+    babel = require('gulp-babel'),
+    watch = require('gulp-watch'),
+    sass = require('gulp-sass');
 
 
-gulp.task('cssm', function () {
-    gulp.src('app/normal/css/styles.css')
-        .pipe(cssmin())
-        .pipe(gulp.dest('app/compressed/css'));
+gulp.task('sass', function () {
+  return gulp.src('app/normal/sass/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cssmin())
+    .pipe(gulp.dest('app/compressed/css/'));
 });
 
 gulp.task('pug', function () {
@@ -19,15 +22,24 @@ gulp.task('pug', function () {
 
 gulp.task('jsm', function () {
     gulp.src('app/normal/js/main.js')
+        .pipe(babel({
+          presets: ['env']
+        }))
         .pipe(uglify())
         .pipe(gulp.dest('app/compressed/js'));
 });
 
+gulp.task('prod', ['sass','pug','jsm'] ,function () {
+
+});
+
 gulp.task('watch', function() {
-    gulp.watch('app/normal/css/styles.css', ['cssm']);
+    gulp.watch('app/normal/sass/*.scss', ['sass']);
     gulp.watch('app/normal/index.pug', ['pug']);
     gulp.watch('app/normal/js/main.js', ['jsm']);
 });
+
+/*global require*/
 
 
 

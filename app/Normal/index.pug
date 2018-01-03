@@ -16,7 +16,8 @@ head
   meta(name="msapplication-TileColor", content="#2b5797")
   meta(name="msapplication-TileImage", content="img/favicons/mstile-144x144.png?v=5AeBvYvNlM")
   meta(name="msapplication-config", content="img/favicons/browserconfig.xml?v=5AeBvYvNlM")
-  meta(name="theme-color", content="#ffffff")
+  meta(name="theme-color", content="#434b60")
+  
 
 -
   // Educators name`s
@@ -174,7 +175,7 @@ body
         .num 2.Ч
         .time #{time.second}
         .discipline ЛК. #{eltec.title}
-        .auditory А112
+        .auditory А122
         .educator.tooltip(data-title= eltec.edu2)
           span #{eltec.eduMin2}
    
@@ -182,7 +183,7 @@ body
         .num 2.З
         .time #{time.second}
         .discipline ЛК. #{eltec.title}
-        .auditory А112
+        .auditory А122
         .educator.tooltip(data-title= eltec.edu2)
           span #{eltec.eduMin2}
        
@@ -221,13 +222,19 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline #{empty.title}
-   
+        .discipline ЛК. #{relavt.title}
+        .auditory 425
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
+        
       li
         .num 1.З
         .time #{time.first}
-        .discipline #{empty.title}
-   
+        .discipline ЛК. #{relavt.title}
+        .auditory 425
+        .educator.tooltip(data-title= relavt.edu)
+          span #{relavt.eduMin}
+
       li
         .num 2.Ч
         .time #{time.second}
@@ -341,18 +348,12 @@ body
       li
         .num 1.Ч
         .time #{time.first}
-        .discipline ЛК. #{relavt.title}
-        .auditory 524
-        .educator.tooltip(data-title= relavt.edu)
-          span #{relavt.eduMin}
+        .discipline #{empty.title}
         
       li
         .num 1.З
         .time #{time.first}
-        .discipline ЛК. #{relavt.title}
-        .auditory 524
-        .educator.tooltip(data-title= relavt.edu)
-          span #{relavt.eduMin}
+        .discipline #{empty.title}
        
       li
         .num 2.Ч

@@ -1,6 +1,6 @@
 # LightweightSchedule
 
-![previewImgMain](https://marchenkovdmitry.com/projects/raspisanie/github_img/OZIKYKGwI98.jpg "")
+![previewImgMain](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/OZIKYKGwI98.jpg "")
 
 Что это?
 ========================
@@ -57,10 +57,10 @@ http://raspisanie.marchenkovdmitry.com
 
 Скриншоты
 ========================
-![previewImg1](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture1.JPG "")
-![previewImg2](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture2.JPG "")
-![previewImg3](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture3.JPG "")
-![previewImg4](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture4.JPG "")
-![previewImg5](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture5.JPG "")
-![previewImg6](https://marchenkovdmitry.com/projects/raspisanie/github_img/Capture6.JPG "")
+![previewImg1](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/Capture1.JPG "")
+![previewImg2](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/Capture2.JPG "")
+![previewImg3](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/Capture3.JPG "")
+![previewImg4](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/Capture4.JPG "")
+![previewImg5](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/Capture5.JPG "")
+![previewImg6](https://raw.githubusercontent.com/marchenkovdmitry/LightweightSchedule/master/github_img/Capture6.JPG "")
 
